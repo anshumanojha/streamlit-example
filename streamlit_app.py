@@ -30,7 +30,7 @@ technology_labels = ['Superset', 'SQL', 'Python', 'AWS', 'AI', 'ML']
 technology_chart = dict(zip(technology_labels, technology_data))
 
 # Create pie chart for skills data
-skills_data = [30, 60, 25, 33]
+skills_data = [30, 60, 60, 33]
 skills_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
 skills_chart = dict(zip(skills_labels, skills_data))
 
