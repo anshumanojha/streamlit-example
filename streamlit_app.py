@@ -4,6 +4,7 @@ import math
 import pandas as pd
 import streamlit as st
 
+
 import streamlit as st
 import pandas as pd
 
@@ -36,15 +37,15 @@ skills_chart = dict(zip(skills_labels, skills_data))
 
 # Tools Known section
 st.header('Tools Known')
-st.bar_chart(tools_chart)
+st.bar_chart(tools_chart, use_container_width=True)
 
 # Technology Known section
 st.header('Technology Known')
-st.line_chart(technology_chart)
+st.line_chart(technology_chart, use_container_width=True)
 
 # Skills Proficiency section
 st.header('Skills Proficiency')
-st.bar_chart(skills_chart)
+st.bar_chart(skills_chart, use_container_width=True)
 
 # Map section
 st.header('Location - Bengaluru')
