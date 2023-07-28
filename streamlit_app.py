@@ -4,8 +4,8 @@ import math
 import pandas as pd
 import streamlit as st
 
-# Import the required libraries
 import streamlit as st
+import pandas as pd
 
 # Page 1: Anshuman's Portfolio
 
@@ -22,13 +22,52 @@ st.markdown("GitHub - Python Projects Automated Google Search: [Automated Google
 st.markdown("GitHub - Python Projects Automated Location Automate: [Automated Location Automate](https://github.com/anshumanojha/pythonprojects/blob/master/browser.py)", unsafe_allow_html=True)
 
 # Create bar chart for tools data
-# ... (your existing code for charts)
+tools_data = [10, 10, 8, 9, 7]
+tools_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
+tools_chart = dict(zip(tools_labels, tools_data))
+
+# Create line chart for technology data
+technology_data = [9, 10, 10, 8, 7, 10]
+technology_labels = ['Superset', 'SQL', 'Python', 'AWS', 'AI', 'ML']
+technology_chart = dict(zip(technology_labels, technology_data))
+
+# Create pie chart for skills data
+skills_data = [30, 60, 60, 33, 50]
+skills_labels = ['Data Scraping', 'Python Automation', 'Cohort Analysis', 'Trend Analysis', 'Repayment Automation']
+skills_chart = dict(zip(skills_labels, skills_data))
+
+# Tools Known section
+st.header('Tools Known')
+st.bar_chart(tools_chart, use_container_width=True)
+
+# Technology Known section
+st.header('Technology Known')
+st.line_chart(technology_chart, use_container_width=True)
+
+# Skills Proficiency section
+st.header('Skills Proficiency')
+st.bar_chart(skills_chart, use_container_width=True)
 
 # Map section
-# ... (your existing code for the map)
+st.header('Location - Bengaluru')
+# Create a DataFrame with your location data
+location_df = pd.DataFrame({'LATITUDE': [12.9716], 'LONGITUDE': [77.5946]})
+st.map(location_df, zoom=10)
 
 # Certifications section
-# ... (your existing code for certifications)
+st.header('Certifications')
+st.markdown(
+    "<ul style='font-size: 18px; color: #333333; list-style-type: square;'>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V' target='_blank'>IBM-Data Analysis certificate</a></li>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX' target='_blank'>IBM-Data Visualization with Python</a></li>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/certificate/ST57AP42DMXS' target='_blank'>Databases and SQL for Data Science with Python</a></li>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/certificate/PWQGKGYMMMQU' target='_blank'>Machine Learning with Python</a></li>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV' target='_blank'>Python for Data Science, AI & Development</a></li>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9' target='_blank'>IBM Data Science Specialization</a></li>"
+    "</ul>",
+    unsafe_allow_html=True
+)
+
 
 # Page 2: Projects and Codes
 
@@ -62,8 +101,5 @@ st.write("Description: Python script for automating repayment calculations.")
 st.code('''
 # Your code for Repayment Automation project goes here
 ''', language='python')
-
-
-
 
 
