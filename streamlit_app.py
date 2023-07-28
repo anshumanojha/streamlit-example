@@ -4,7 +4,6 @@ import math
 import pandas as pd
 import streamlit as st
 
-
 import streamlit as st
 import pandas as pd
 
@@ -16,9 +15,9 @@ st.markdown(
 )
 
 # Add links to LinkedIn and GitHub profiles
-st.markdown("<p style='font-size: 18px;'>LinkedIn Profile: <a href='https://www.linkedin.com/in/anshuman-ojha-34093885/' target='_blank'>Anshuman Ojha</a></p>", unsafe_allow_html=True)
-st.markdown("<p style='font-size: 18px;'>GitHub - Python Projects Automated Google Search: <a href='https://github.com/anshumanojha/pythonprojects/blob/master/Googlewebsearchauto.ipynb' target='_blank'>Automated Google Search</a></p>", unsafe_allow_html=True)
-st.markdown("<p style='font-size: 18px;'>GitHub - Python Projects Automated Location Automate: <a href='https://github.com/anshumanojha/pythonprojects/blob/master/browser.py' target='_blank'>Automated Location Automate</a></p>", unsafe_allow_html=True)
+st.markdown("LinkedIn Profile: [Anshuman Ojha](https://www.linkedin.com/in/anshuman-ojha-34093885/)", unsafe_allow_html=True)
+st.markdown("GitHub - Python Projects Automated Google Search: [Automated Google Search](https://github.com/anshumanojha/pythonprojects/blob/master/Googlewebsearchauto.ipynb)", unsafe_allow_html=True)
+st.markdown("GitHub - Python Projects Automated Location Automate: [Automated Location Automate](https://github.com/anshumanojha/pythonprojects/blob/master/browser.py)", unsafe_allow_html=True)
 
 # Create bar chart for tools data
 tools_data = [10, 10, 8, 9, 7]
@@ -66,6 +65,10 @@ st.markdown(
     "</ul>",
     unsafe_allow_html=True
 )
+
+
+
+
 
 
 
