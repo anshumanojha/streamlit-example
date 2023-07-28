@@ -6,6 +6,7 @@ import streamlit as st
 
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
 # Add Personal Information
 st.title("Anshuman's Portfolio")
@@ -66,6 +67,8 @@ st.markdown(
     "</ul>",
     unsafe_allow_html=True
 )
+
+
 
 
 
