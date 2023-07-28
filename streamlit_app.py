@@ -4,14 +4,8 @@ import math
 import pandas as pd
 import streamlit as st
 
-
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
+import streamlit as st
 import plotly.graph_objects as go
-
-# Create the Dash app
-app = dash.Dash(__name__)
 
 # Create bar chart for tools data
 tools_data = [10, 10, 8, 9, 7]
@@ -32,29 +26,24 @@ skills_fig = go.Figure(go.Pie(labels=skills_labels, values=skills_data, hole=0.3
 skills_fig.update_layout(title='Skills Proficiency out of 10')
 
 # Define the layout of the dashboard
-app.layout = html.Div(children=[
-    html.H1('Dashboard'),
+st.title('Dashboard')
 
-    html.H2('Tools Known'),
-    dcc.Graph(figure=tools_fig),
+st.header('Tools Known')
+st.plotly_chart(tools_fig)
 
-    html.H2('Technology Known'),
-    dcc.Graph(figure=technology_fig),
+st.header('Technology Known')
+st.plotly_chart(technology_fig)
 
-    html.H2('Skills Proficiency'),
-    dcc.Graph(figure=skills_fig),
+st.header('Skills Proficiency')
+st.plotly_chart(skills_fig)
 
-    html.H2('Certifications'),
-    html.Ul([
-        html.Li(html.A('IBM-Data Analysis certificate', href='https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V', target='_blank')),
-        html.Li(html.A('IBM-Data Visualization with Python', href='https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX', target='_blank')),
-        html.Li(html.A('Databases and SQL for Data Science with Python', href='https://www.coursera.org/account/accomplishments/certificate/ST57AP42DMXS', target='_blank')),
-        html.Li(html.A('Machine Learning with Python', href='https://www.coursera.org/account/accomplishments/certificate/PWQGKGYMMMQU', target='_blank')),
-        html.Li(html.A('Python for Data Science, AI & Development', href='https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV', target='_blank')),
-        html.Li(html.A('IBM Data Science Specialization', href='https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9', target='_blank')),
-    ])
-])
+st.header('Certifications')
+st.markdown('[IBM-Data Analysis certificate](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)')
+st.markdown('[IBM-Data Visualization with Python](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)')
+st.markdown('[Databases and SQL for Data Science with Python](https://www.coursera.org/account/accomplishments/certificate/ST57AP42DMXS)')
+st.markdown('[Machine Learning with Python](https://www.coursera.org/account/accomplishments/certificate/PWQGKGYMMMQU)')
+st.markdown('[Python for Data Science, AI & Development](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)')
+st.markdown('[IBM Data Science Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)')
 
-# Run the app
-if __name__ == '__main__':
-    app.run_server(debug=True)
+
+
