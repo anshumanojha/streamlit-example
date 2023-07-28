@@ -32,7 +32,7 @@ st.header('Technology Known')
 st.line_chart(technology_chart)
 
 st.header('Skills Proficiency')
-st.pyplot(skills_chart)
+st.bar_chart(skills_chart)
 
 st.header('Certifications')
 st.markdown('[IBM-Data Analysis certificate](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)')
@@ -41,7 +41,6 @@ st.markdown('[Databases and SQL for Data Science with Python](https://www.course
 st.markdown('[Machine Learning with Python](https://www.coursera.org/account/accomplishments/certificate/PWQGKGYMMMQU)')
 st.markdown('[Python for Data Science, AI & Development](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)')
 st.markdown('[IBM Data Science Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)')
-
 
 
 
