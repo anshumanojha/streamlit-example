@@ -3,8 +3,9 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-import bs4
-import requests  # Import the requests module
+
+import streamlit as st
+import pandas as pd
 
 # Page 1: Anshuman's Portfolio
 
@@ -75,8 +76,7 @@ st.title('Projects and Codes')
 # Project 1: Data Scraping
 st.subheader('Project 1: Data Scraping')
 st.write("Description: A Python script to scrape data from a website.")
-
-code = '''
+st.code('''
 import requests
 import bs4
 import pandas as pd
@@ -107,13 +107,11 @@ results = get_smaller_urls(search_queries)
 df = pd.DataFrame({"Search Query": [query for query in search_queries for _ in range(len(results))],
                    "Smaller URL": results})
 
-df
-'''
-
-st.code(code, language='python')
-
+executed_code = "df = pd.DataFrame({'Search Query': ['biryani in bangalore'], 'Smaller URL': ['https://www.zomato.com/bangalore/biryani']})"
+exec(executed_code)
 st.subheader('Output:')
-st.write(pd.DataFrame({"Search Query": ["biryani in bangalore"], "Smaller URL": ["https://www.zomato.com/bangalore/biryani"]}))
+st.write(df)
+''', language='python')
 
 st.subheader('Project 2: Python Automation')
 st.write("Description: A Python script for automating a repetitive task.")
