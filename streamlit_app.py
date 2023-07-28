@@ -3,7 +3,6 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-import bs4
 import requests  # Import the requests module
 
 # Page 1: Anshuman's Portfolio
@@ -67,16 +66,38 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 # Page 2: Projects and Codes
 st.title('Projects and Codes')
 
-# Create a list of project names for the sidebar
-project_names = ['Project 1: Data Scraping', 'Project 2: Python Automation', 'Project 3: Cohort Analysis', 
-                 'Project 4: Trend Analysis', 'Project 5: Repayment Automation']
+# Project 1: Data Scraping
+st.subheader('Project 1: Data Scraping')
+st.write("Description: A Python script to scrape data from a website.")
 
-# Sidebar with project selection
-selected_project = st.sidebar.selectbox('Select a Project', project_names)
+code = '''
+def get_smaller_urls(search_query):
+    url = "https://google.com/search?q=" + search_query
+    request_result = requests.get(url)
+    search_results = request_result.text
+    start_index = search_results.find("https://www.zomato.com/")
+    end_index = search_results.find("&", start_index)
+    smaller_url = search_results[start_index:end_index]
+    return smaller_url
+
+search_query = "biryani in bangalore"
+result = get_smaller_urls(search_query)
+
+df = pd.DataFrame({"Search Query": [search_query],
+                   "Smaller URL": [result]})
+df
+'''
+
+st.code(code, language='python')
+
+st.subheader('Output:')
+exec(code)
+
+# Rest of the code for other projects (Project 2 to Project 5) remains unchanged.
+
 
 # Show the content based on the selected project
 if selected_project == 'Project 1: Data Scraping':
