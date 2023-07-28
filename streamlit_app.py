@@ -73,7 +73,7 @@ st.title('Projects and Codes')
 st.subheader('Project 1: Data Scraping')
 st.write("Description: A Python script to scrape data from a website.")
 
-code = '''
+code_project1 = '''
 def get_smaller_urls(search_query):
     url = "https://google.com/search?q=" + search_query
     request_result = requests.get(url)
@@ -91,10 +91,19 @@ df = pd.DataFrame({"Search Query": [search_query],
 df
 '''
 
-st.code(code, language='python')
+if 'selected_project' not in st.session_state:
+    st.session_state.selected_project = None
 
-st.subheader('Output:')
-exec(code)
+if st.button('Project 1: Data Scraping'):
+    st.session_state.selected_project = 'project1'
+
+if st.session_state.selected_project == 'project1':
+    st.code(code_project1, language='python')
+    st.subheader('Output:')
+    exec(code_project1)
+
+# Rest of the code for other projects (Project 2 to Project 5) remains unchanged.
+
 
 # Rest of the code for other projects (Project 2 to Project 5) remains unchanged.
 
