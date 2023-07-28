@@ -6,7 +6,7 @@ import streamlit as st
 
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+import matplotlib.pyplot as plt
 
 # Add Personal Information
 st.title("Anshuman's Portfolio")
@@ -23,7 +23,15 @@ st.markdown("GitHub - Python Projects Automated Location Automate: [Automated Lo
 # Create bar chart for tools data
 tools_data = [10, 10, 8, 9, 7]
 tools_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
-tools_chart = dict(zip(tools_labels, tools_data))
+
+# Tools Known section (Bar Chart)
+st.header('Tools Known')
+fig_tools, ax_tools = plt.subplots()
+ax_tools.bar(tools_labels, tools_data, color='#00aaff')
+ax_tools.set_title('Tools Known')
+ax_tools.set_xlabel('Tools')
+ax_tools.set_ylabel('Knowledge Level')
+st.pyplot(fig_tools)
 
 # Create radar chart for technology data
 technology_data = [9, 10, 10, 8, 7, 10]
@@ -38,15 +46,23 @@ st.write("Knowledge Level for each Technology:")
 st.write(technology_df)
 
 # Create a radar chart
-fig_radar = px.line_polar(technology_df, r='Knowledge Level', theta='Technology', line_close=True)
-fig_radar.update_traces(fill='toself', marker=dict(color='#00aaff'))
-fig_radar.update_layout(polar=dict(radialaxis=dict(showticklabels=True, ticksuffix='%')))
+fig_radar, ax_radar = plt.subplots(subplot_kw={'polar': True})
+ax_radar.plot(technology_labels + [technology_labels[0]], technology_data + [technology_data[0]], marker='o', color='#00aaff')
+ax_radar.fill(technology_labels + [technology_labels[0]], technology_data + [technology_data[0]], alpha=0.25, color='#00aaff')
+ax_radar.set_title('Technology Known')
+st.pyplot(fig_radar)
 
-st.plotly_chart(fig_radar)
+# Create pie chart for skills data
+skills_data = [30, 60, 25, 33]
+skills_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
 
-# Skills Proficiency section
+# Skills Proficiency section (Pie Chart)
 st.header('Skills Proficiency')
-st.bar_chart(skills_chart, use_container_width=True)
+fig_skills, ax_skills = plt.subplots()
+ax_skills.pie(skills_data, labels=skills_labels, autopct='%1.1f%%', startangle=90, colors=['#00aaff', '#ffbb00', '#ff5500', '#ff00aa'])
+ax_skills.axis('equal')
+ax_skills.set_title('Skills Proficiency')
+st.pyplot(fig_skills)
 
 # Map section
 st.header('Location - Bengaluru')
