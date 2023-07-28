@@ -101,7 +101,7 @@ df
 if 'selected_project' not in st.session_state:
     st.session_state.selected_project = None
 
-if st.button('Project 1: Data Scraping'):
+if st.button('Python Scraping: Click to Run'):
     st.session_state.selected_project = 'Project 1: Data Scraping'
 
 if st.session_state.selected_project == 'Project 1: Data Scraping':
