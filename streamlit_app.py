@@ -5,7 +5,11 @@ import pandas as pd
 import streamlit as st
 
 
-import streamlit as st
+
+
+
+
+   import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -46,6 +50,11 @@ ax_technology.set_title('Technology Known')
 ax_technology.set_xlabel('Technology')
 ax_technology.set_ylabel('Knowledge Level')
 st.pyplot(fig_technology)
+
+# Create pie chart for skills data
+skills_data = [30, 60, 25, 33]
+skills_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
+skills_chart = dict(zip(skills_labels, skills_data))
 
 # Skills Proficiency section
 st.header('Skills Proficiency')
