@@ -107,11 +107,11 @@ results = get_smaller_urls(search_queries)
 df = pd.DataFrame({"Search Query": [query for query in search_queries for _ in range(len(results))],
                    "Smaller URL": results})
 
-# Display the output DataFrame
+executed_code = "df = pd.DataFrame({'Search Query': ['biryani in bangalore'], 'Smaller URL': ['https://www.zomato.com/bangalore/biryani']})"
+exec(executed_code)
 st.subheader('Output:')
 st.write(df)
 ''', language='python')
-
 
 st.subheader('Project 2: Python Automation')
 st.write("Description: A Python script for automating a repetitive task.")
