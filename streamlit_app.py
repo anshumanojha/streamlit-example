@@ -3,9 +3,8 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-
-import streamlit as st
-import pandas as pd
+import bs4
+import requests  # Import the requests module
 
 # Page 1: Anshuman's Portfolio
 
@@ -68,15 +67,22 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 # Page 2: Projects and Codes
 
 st.title('Projects and Codes')
 
-# Project 1: Data Scraping
-st.subheader('Project 1: Data Scraping')
-st.write("Description: A Python script to scrape data from a website.")
-st.code('''
+# Create a list of project names for the sidebar
+project_names = ['Project 1: Data Scraping', 'Project 2: Python Automation', 'Project 3: Cohort Analysis', 
+                 'Project 4: Trend Analysis', 'Project 5: Repayment Automation']
+
+# Sidebar with project selection
+selected_project = st.sidebar.selectbox('Select a Project', project_names)
+
+# Show the content based on the selected project
+if selected_project == 'Project 1: Data Scraping':
+    st.subheader('Project 1: Data Scraping')
+    st.write("Description: A Python script to scrape data from a website.")
+    st.code('''
 import requests
 import bs4
 import pandas as pd
@@ -113,26 +119,27 @@ st.subheader('Output:')
 st.write(df)
 ''', language='python')
 
-st.subheader('Project 2: Python Automation')
-st.write("Description: A Python script for automating a repetitive task.")
-st.code('''
+elif selected_project == 'Project 2: Python Automation':
+    st.subheader('Project 2: Python Automation')
+    st.write("Description: A Python script for automating a repetitive task.")
+    st.code('''
 # Your code for Python Automation project goes here
 ''', language='python')
 
-st.subheader('Project 3: Cohort Analysis')
-st.write("Description: Python code for performing cohort analysis on customer data.")
-st.code('''
+elif selected_project == 'Project 3: Cohort Analysis':
+    st.subheader('Project 3: Cohort Analysis')
+    st.write("Description: Python code for performing cohort analysis on customer data.")
+    st.code('''
 # Your code for Cohort Analysis project goes here
 ''', language='python')
 
-st.subheader('Project 4: Trend Analysis')
-st.write("Description: Python code for analyzing trends in financial data.")
-st.code('''
+elif selected_project == 'Project 4: Trend Analysis':
+    st.subheader('Project 4: Trend Analysis')
+    st.write("Description: Python code for analyzing trends in financial data.")
+    st.code('''
 # Your code for Trend Analysis project goes here
 ''', language='python')
 
-st.subheader('Project 5: Repayment Automation')
-st.write("Description: Python script for automating repayment calculations.")
-st.code('''
-# Your code for Repayment Automation project goes here
-''', language='python')
+elif selected_project == 'Project 5: Repayment Automation':
+    st.subheader('Project 5: Repayment Automation')
+    st.write("Description: Python script for automating
