@@ -69,7 +69,7 @@ def get_smaller_urls(search_query):
     url = "https://google.com/search?q=" + search_query
     request_result = requests.get(url)
     search_results = request_result.text
-    start_index = search_results.find("Briyani")
+    start_index = search_results.find("https://www.zomato.com/")
     end_index = search_results.find("&", start_index)
     smaller_url = search_results[start_index:end_index]
     return smaller_url
@@ -90,7 +90,7 @@ def get_smaller_urls(search_query):
     smaller_url = search_results[start_index:end_index]
     return smaller_url
 
-search_query = "biryani in bangalore"
+search_query = "biryani"
 result = get_smaller_urls(search_query)
 
 df = pd.DataFrame({"Search Query": [search_query],
