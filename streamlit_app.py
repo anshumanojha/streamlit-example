@@ -4,35 +4,57 @@ import math
 import pandas as pd
 import streamlit as st
 
-"""
-# Welcome to Streamlit!
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import plotly.graph_objects as go
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+# Create the Dash app
+app = dash.Dash(__name__)
 
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
+# Create bar chart for tools data
+tools_data = [10, 10, 8, 9, 7]
+tools_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
+tools_fig = go.Figure(go.Bar(x=tools_labels, y=tools_data))
+tools_fig.update_layout(title='Tools Known')
 
+# Create line chart for technology data
+technology_data = [9, 10, 10, 8, 7, 10]
+technology_labels = ['Superset', 'SQL', 'Python', 'AWS', 'AI', 'ML']
+technology_fig = go.Figure(go.Scatter(x=technology_labels, y=technology_data, mode='lines+markers'))
+technology_fig.update_layout(title='Technology Known')
 
-with st.echo(code_location='below'):
-    total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-    num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+# Create pie chart for skills data
+skills_data = [30, 60, 25, 33]
+skills_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
+skills_fig = go.Figure(go.Pie(labels=skills_labels, values=skills_data, hole=0.3))
+skills_fig.update_layout(title='Skills Proficiency out of 10')
 
-    Point = namedtuple('Point', 'x y')
-    data = []
+# Define the layout of the dashboard
+app.layout = html.Div(children=[
+    html.H1('Dashboard'),
 
-    points_per_turn = total_points / num_turns
+    html.H2('Tools Known'),
+    dcc.Graph(figure=tools_fig),
 
-    for curr_point_num in range(total_points):
-        curr_turn, i = divmod(curr_point_num, points_per_turn)
-        angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-        radius = curr_point_num / total_points
-        x = radius * math.cos(angle)
-        y = radius * math.sin(angle)
-        data.append(Point(x, y))
+    html.H2('Technology Known'),
+    dcc.Graph(figure=technology_fig),
 
-    st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-        .mark_circle(color='#0068c9', opacity=0.5)
-        .encode(x='x:Q', y='y:Q'))
+    html.H2('Skills Proficiency'),
+    dcc.Graph(figure=skills_fig),
+
+    html.H2('Certifications'),
+    html.Ul([
+        html.Li(html.A('IBM-Data Analysis certificate', href='https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V', target='_blank')),
+        html.Li(html.A('IBM-Data Visualization with Python', href='https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX', target='_blank')),
+        html.Li(html.A('Databases and SQL for Data Science with Python', href='https://www.coursera.org/account/accomplishments/certificate/ST57AP42DMXS', target='_blank')),
+        html.Li(html.A('Machine Learning with Python', href='https://www.coursera.org/account/accomplishments/certificate/PWQGKGYMMMQU', target='_blank')),
+        html.Li(html.A('Python for Data Science, AI & Development', href='https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV', target='_blank')),
+        html.Li(html.A('IBM Data Science Specialization', href='https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9', target='_blank')),
+    ])
+])
+
+# Run the app
+if __name__ == '__main__':
+    app.run_server(debug=True)
