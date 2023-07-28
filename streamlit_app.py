@@ -4,7 +4,6 @@ import math
 import pandas as pd
 import streamlit as st
 
-
 import streamlit as st
 import pandas as pd
 
@@ -45,7 +44,7 @@ st.bar_chart(skills_chart)
 # Map section
 st.header('Location - Bengaluru')
 # Create a DataFrame with your location data
-location_df = pd.DataFrame({'lat': [12.9716], 'lon': [77.5946]})
+location_df = pd.DataFrame({'LATITUDE': [12.9716], 'LONGITUDE': [77.5946]})
 st.map(location_df, zoom=10)
 
 # Certifications section
@@ -61,3 +60,9 @@ st.markdown(
     "</ul>",
     unsafe_allow_html=True
 )
+
+
+
+
+
+
