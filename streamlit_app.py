@@ -40,6 +40,10 @@ st.line_chart(technology_chart)
 st.header('Skills Proficiency')
 st.bar_chart(skills_chart)
 
+# Map section
+st.header('Location - Bengaluru')
+st.map((12.9716, 77.5946), zoom=10)
+
 # Certifications section
 st.header('Certifications')
 st.markdown(
