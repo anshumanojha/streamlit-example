@@ -7,6 +7,7 @@ import streamlit as st
 
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Add Personal Information
 st.title("Anshuman's Portfolio")
@@ -25,23 +26,26 @@ tools_data = [10, 10, 8, 9, 7]
 tools_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
 tools_chart = dict(zip(tools_labels, tools_data))
 
-# Create line chart for technology data
+# Create scatter plot for technology data
 technology_data = [9, 10, 10, 8, 7, 10]
 technology_labels = ['Superset', 'SQL', 'Python', 'AWS', 'AI', 'ML']
-technology_chart = dict(zip(technology_labels, technology_data))
-
-# Create pie chart for skills data
-skills_data = [30, 60, 25, 33]
-skills_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
-skills_chart = dict(zip(skills_labels, skills_data))
+technology_df = pd.DataFrame({'Technology': technology_labels, 'Knowledge Level': technology_data})
 
 # Tools Known section
 st.header('Tools Known')
 st.bar_chart(tools_chart, use_container_width=True)
 
-# Technology Known section
+# Technology Known section (Scatter Plot)
 st.header('Technology Known')
-st.line_chart(technology_chart, use_container_width=True)
+st.write("Knowledge Level for each Technology:")
+st.write(technology_df)
+
+fig_technology, ax_technology = plt.subplots()
+ax_technology.scatter(technology_labels, technology_data, color='#00aaff', marker='o')
+ax_technology.set_title('Technology Known')
+ax_technology.set_xlabel('Technology')
+ax_technology.set_ylabel('Knowledge Level')
+st.pyplot(fig_technology)
 
 # Skills Proficiency section
 st.header('Skills Proficiency')
@@ -66,6 +70,11 @@ st.markdown(
     "</ul>",
     unsafe_allow_html=True
 )
+
+
+
+
+
 
 
 
