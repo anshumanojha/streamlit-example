@@ -4,9 +4,7 @@ import math
 import pandas as pd
 import streamlit as st
 import bs4
-
-import streamlit as st
-import pandas as pd
+import requests  # Import the requests module
 
 # Page 1: Anshuman's Portfolio
 
@@ -79,6 +77,10 @@ st.subheader('Project 1: Data Scraping')
 st.write("Description: A Python script to scrape data from a website.")
 
 code = '''
+import requests
+import bs4
+import pandas as pd
+
 def get_smaller_urls(search_queries):
     smaller_urls = []
 
@@ -136,5 +138,3 @@ st.write("Description: Python script for automating repayment calculations.")
 st.code('''
 # Your code for Repayment Automation project goes here
 ''', language='python')
-
-
