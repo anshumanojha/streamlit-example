@@ -4,8 +4,6 @@ import math
 import pandas as pd
 import streamlit as st
 
-
-
 import streamlit as st
 import pandas as pd
 
@@ -26,23 +24,24 @@ tools_data = [10, 10, 8, 9, 7]
 tools_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
 tools_chart = dict(zip(tools_labels, tools_data))
 
-# Create line chart for technology data
+# Create radar chart for technology data
 technology_data = [9, 10, 10, 8, 7, 10]
 technology_labels = ['Superset', 'SQL', 'Python', 'AWS', 'AI', 'ML']
-technology_chart = dict(zip(technology_labels, technology_data))
 
-# Create pie chart for skills data
-skills_data = [30, 60, 25, 33]
-skills_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
-skills_chart = dict(zip(skills_labels, skills_data))
+# Create a DataFrame for the radar chart
+technology_df = pd.DataFrame({'Technology': technology_labels, 'Knowledge Level': technology_data})
 
-# Tools Known section
-st.header('Tools Known')
-st.bar_chart(tools_chart, use_container_width=True)
-
-# Technology Known section
+# Technology Known section (Radar Chart)
 st.header('Technology Known')
-st.line_chart(technology_chart, use_container_width=True)
+st.write("Knowledge Level for each Technology:")
+st.write(technology_df)
+
+# Create a radar chart
+fig_radar = px.line_polar(technology_df, r='Knowledge Level', theta='Technology', line_close=True)
+fig_radar.update_traces(fill='toself', marker=dict(color='#00aaff'))
+fig_radar.update_layout(polar=dict(radialaxis=dict(showticklabels=True, ticksuffix='%')))
+
+st.plotly_chart(fig_radar)
 
 # Skills Proficiency section
 st.header('Skills Proficiency')
@@ -67,6 +66,9 @@ st.markdown(
     "</ul>",
     unsafe_allow_html=True
 )
+
+
+
 
 
 
