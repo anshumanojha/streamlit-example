@@ -95,45 +95,16 @@ if 'selected_project' not in st.session_state:
     st.session_state.selected_project = None
 
 if st.button('Project 1: Data Scraping'):
-    st.session_state.selected_project = 'project1'
+    st.session_state.selected_project = 'Project 1: Data Scraping'
 
-if st.session_state.selected_project == 'project1':
+if st.session_state.selected_project == 'Project 1: Data Scraping':
     st.code(code_project1, language='python')
     st.subheader('Output:')
     exec(code_project1)
 
 # Rest of the code for other projects (Project 2 to Project 5) remains unchanged.
 
-
-# Rest of the code for other projects (Project 2 to Project 5) remains unchanged.
-
-
 # Show the content based on the selected project
-if selected_project == 'Project 1: Data Scraping':
+if st.session_state.selected_project == 'Project 1: Data Scraping':
     st.subheader('Project 1: Data Scraping')
     st.write("Description: A Python script to scrape data from a website.")
-    # ... (previous code for Project 1 remains unchanged)
-
-elif selected_project == 'Project 2: Python Automation':
-    st.subheader('Project 2: Python Automation')
-    st.write("Description: A Python script for automating a repetitive task.")
-    # ... (previous code for Project 2 remains unchanged)
-
-elif selected_project == 'Project 3: Cohort Analysis':
-    st.subheader('Project 3: Cohort Analysis')
-    st.write("Description: Python code for performing cohort analysis on customer data.")
-    # ... (previous code for Project 3 remains unchanged)
-
-elif selected_project == 'Project 4: Trend Analysis':
-    st.subheader('Project 4: Trend Analysis')
-    st.write("Description: Python code for analyzing trends in financial data.")
-    # ... (previous code for Project 4 remains unchanged)
-
-elif selected_project == 'Project 5: Repayment Automation':
-    st.subheader('Project 5: Repayment Automation')
-    st.write("Description: Python script for automating repayment calculations.")
-    # ... (previous code for Project 5 remains unchanged)
-
-# Add a button to navigate back to the Portfolio page
-if st.button("Back to Portfolio"):
-    selected_project = None
