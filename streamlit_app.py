@@ -65,7 +65,14 @@ st.markdown(
     "</ul>",
     unsafe_allow_html=True
 )
-
+def get_smaller_urls(search_query):
+    url = "https://google.com/search?q=" + search_query
+    request_result = requests.get(url)
+    search_results = request_result.text
+    start_index = search_results.find("https://www.zomato.com/")
+    end_index = search_results.find("&", start_index)
+    smaller_url = search_results[start_index:end_index]
+    return smaller_url
 # Page 2: Projects and Codes
 st.title('Projects and Codes')
 
