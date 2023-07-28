@@ -100,11 +100,16 @@ if st.button('Project 1: Data Scraping'):
 if st.session_state.selected_project == 'Project 1: Data Scraping':
     st.code(code_project1, language='python')
     st.subheader('Output:')
-    exec(code_project1)
+    df = get_smaller_urls("biryani in bangalore")
+    st.write(df)
+
 
 # Rest of the code for other projects (Project 2 to Project 5) remains unchanged.
 
-# Show the content based on the selected project
 if st.session_state.selected_project == 'Project 1: Data Scraping':
     st.subheader('Project 1: Data Scraping')
     st.write("Description: A Python script to scrape data from a website.")
+    st.code(code_project1, language='python')
+    st.subheader('Output:')
+    df = get_smaller_urls("biryani in bangalore")
+    st.write(df)
