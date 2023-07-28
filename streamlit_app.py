@@ -17,9 +17,9 @@ st.markdown(
 )
 
 # Add links to LinkedIn and GitHub profiles
-st.markdown("LinkedIn Profile: [Anshuman Ojha](https://www.linkedin.com/in/anshuman-ojha-34093885/)", unsafe_allow_html=True)
-st.markdown("GitHub - Python Projects Automated Google Search: [Automated Google Search](https://github.com/anshumanojha/pythonprojects/blob/master/Googlewebsearchauto.ipynb)", unsafe_allow_html=True)
-st.markdown("GitHub - Python Projects Automated Location Automate: [Automated Location Automate](https://github.com/anshumanojha/pythonprojects/blob/master/browser.py)", unsafe_allow_html=True)
+st.markdown("[LinkedIn Profile](https://www.linkedin.com/in/anshuman-ojha-34093885/)")
+st.markdown("[GitHub - Python Projects Automated Google Search](https://github.com/anshumanojha/pythonprojects/blob/master/Googlewebsearchauto.ipynb)")
+st.markdown("[GitHub - Python Projects Automated Location Automate](https://github.com/anshumanojha/pythonprojects/blob/master/browser.py)")
 
 # Create bar chart for tools data
 tools_data = [10, 10, 8, 9, 7]
@@ -68,6 +68,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+
 # Page 2: Projects and Codes
 
 st.title('Projects and Codes')
@@ -80,14 +81,31 @@ import bs4
 import pandas as pd
 
 def get_smaller_urls(search_queries):
-    # ... (existing code for the function)
+    smaller_urls = []
+
+    for query in search_queries:
+        url = "https://google.com/search?q=" + query
+        request_result = requests.get(url)
+        soup = bs4.BeautifulSoup(request_result.text, "html.parser")
+        search_results = soup.find_all("a")
+        result_links = []
+
+        for result in search_results:
+            link = result.get("href")
+            if link.startswith("/url?q="):
+                smaller_url = link[7:].split("&sa")[0]
+                result_links.append(smaller_url)
+
+        smaller_urls.extend(result_links)
+
+    return smaller_urls
 
 search_queries = ["biryani in bangalore"]
 results = get_smaller_urls(search_queries)
 
 df = pd.DataFrame({"Search Query": [query for query in search_queries for _ in range(len(results))],
                    "Smaller URL": results})
-st.write(df)  # Display the output DataFrame
+st.dataframe(df)  # Display the output DataFrame
 ''', language='python')
 
 st.subheader('Project 2: Python Automation')
