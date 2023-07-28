@@ -76,7 +76,8 @@ st.title('Projects and Codes')
 # Project 1: Data Scraping
 st.subheader('Project 1: Data Scraping')
 st.write("Description: A Python script to scrape data from a website.")
-st.code('''
+
+code = '''
 import requests
 import bs4
 import pandas as pd
@@ -107,11 +108,12 @@ results = get_smaller_urls(search_queries)
 df = pd.DataFrame({"Search Query": [query for query in search_queries for _ in range(len(results))],
                    "Smaller URL": results})
 
-executed_code = "df = pd.DataFrame({'Search Query': ['biryani in bangalore'], 'Smaller URL': ['https://www.zomato.com/bangalore/biryani']})"
-exec(executed_code)
+df
+'''
+
+st.echo(code)
 st.subheader('Output:')
-st.write(df)
-''', language='python')
+exec(code)
 
 st.subheader('Project 2: Python Automation')
 st.write("Description: A Python script for automating a repetitive task.")
