@@ -106,7 +106,7 @@ if st.button('Python Scraping: Click to Run'):
 
 if st.session_state.selected_project == 'Project 1: Data Scraping':
     st.subheader('Project 1: Data Scraping')
-    st.write("Description: A Python script to scrape data from a .")
+    st.write("Description: A Python script to scrape  the first link from google")
     st.code(code_project1, language='python')
     st.subheader('Output:')
     df = get_smaller_urls("biryani in bangalore")
