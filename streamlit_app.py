@@ -74,7 +74,7 @@ st.markdown(
 st.title('Projects and Codes')
 st.subheader('Project 1: Data Scraping')
 st.write("Description: A Python script to scrape data from a website.")
-st.code(
+st.code('''
 import requests
 import bs4
 import pandas as pd
@@ -113,7 +113,7 @@ results = get_smaller_urls(search_queries)
 df = pd.DataFrame({"Search Query": [query for query in search_queries for _ in range(len(results))],
                    "Smaller URL": results})
 print(df)
-, language='python')
+''', language='python')
 
 st.subheader('Project 2: Python Automation')
 st.write("Description: A Python script for automating a repetitive task.")
