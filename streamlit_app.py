@@ -109,7 +109,7 @@ df = pd.DataFrame({"Search Query": [query for query in search_queries for _ in r
 
 # Display the output DataFrame
 st.subheader('Output:')
-st.dataframe(df)
+st.echo(df)
 ''', language='python')
 
 
