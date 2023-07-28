@@ -109,9 +109,8 @@ df = pd.DataFrame({"Search Query": [query for query in search_queries for _ in r
 
 # Display the output DataFrame
 st.subheader('Output:')
-st.echo(df)
+st.write(df)
 ''', language='python')
-
 
 
 st.subheader('Project 2: Python Automation')
