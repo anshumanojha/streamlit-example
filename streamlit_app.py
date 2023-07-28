@@ -4,15 +4,14 @@ import math
 import pandas as pd
 import streamlit as st
 
-
 import streamlit as st
 
 # Add Personal Information
 st.title("Anshuman's Portfolio")
-st.subheader('Personal Information')
-st.write('Name: Anshuman Ojha')
-st.write('Designation: Finops & Revenue Analyst')
-st.write('Experience: 3+ years')
+st.markdown(
+    "<p style='font-size: 20px; color: #555555;'>Finops & Revenue Analyst | Experience: 3+ years</p>",
+    unsafe_allow_html=True
+)
 
 # Create bar chart for tools data
 tools_data = [10, 10, 8, 9, 7]
@@ -43,9 +42,14 @@ st.bar_chart(skills_chart)
 
 # Certifications section
 st.header('Certifications')
-st.markdown('[IBM-Data Analysis certificate](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)')
-st.markdown('[IBM-Data Visualization with Python](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)')
-st.markdown('[Databases and SQL for Data Science with Python](https://www.coursera.org/account/accomplishments/certificate/ST57AP42DMXS)')
-st.markdown('[Machine Learning with Python](https://www.coursera.org/account/accomplishments/certificate/PWQGKGYMMMQU)')
-st.markdown('[Python for Data Science, AI & Development](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)')
-st.markdown('[IBM Data Science Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)')
+st.markdown(
+    "<ul style='font-size: 18px; color: #333333; list-style-type: square;'>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V' target='_blank'>IBM-Data Analysis certificate</a></li>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX' target='_blank'>IBM-Data Visualization with Python</a></li>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/certificate/ST57AP42DMXS' target='_blank'>Databases and SQL for Data Science with Python</a></li>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/certificate/PWQGKGYMMMQU' target='_blank'>Machine Learning with Python</a></li>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV' target='_blank'>Python for Data Science, AI & Development</a></li>"
+    "<li><a href='https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9' target='_blank'>IBM Data Science Specialization</a></li>"
+    "</ul>",
+    unsafe_allow_html=True
+)
