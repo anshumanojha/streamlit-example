@@ -73,6 +73,7 @@ st.markdown(
 
 st.title('Projects and Codes')
 
+# Project 1: Data Scraping
 st.subheader('Project 1: Data Scraping')
 st.write("Description: A Python script to scrape data from a website.")
 st.code('''
@@ -105,8 +106,13 @@ results = get_smaller_urls(search_queries)
 
 df = pd.DataFrame({"Search Query": [query for query in search_queries for _ in range(len(results))],
                    "Smaller URL": results})
-st.dataframe(df)  # Display the output DataFrame
+
+# Display the output DataFrame
+st.subheader('Output:')
+st.dataframe(df)
 ''', language='python')
+
+
 
 st.subheader('Project 2: Python Automation')
 st.write("Description: A Python script for automating a repetitive task.")
