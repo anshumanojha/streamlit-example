@@ -4,7 +4,9 @@ import math
 import pandas as pd
 import streamlit as st
 
+
 import streamlit as st
+import pandas as pd
 
 # Add Personal Information
 st.title("Anshuman's Portfolio")
@@ -42,7 +44,9 @@ st.bar_chart(skills_chart)
 
 # Map section
 st.header('Location - Bengaluru')
-st.map((12.9716, 77.5946), zoom=10)
+# Create a DataFrame with your location data
+location_df = pd.DataFrame({'lat': [12.9716], 'lon': [77.5946]})
+st.map(location_df, zoom=10)
 
 # Certifications section
 st.header('Certifications')
