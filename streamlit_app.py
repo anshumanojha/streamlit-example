@@ -3,6 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import bs4
 
 import streamlit as st
 import pandas as pd
@@ -78,10 +79,6 @@ st.subheader('Project 1: Data Scraping')
 st.write("Description: A Python script to scrape data from a website.")
 
 code = '''
-import requests
-import bs4
-import pandas as pd
-
 def get_smaller_urls(search_queries):
     smaller_urls = []
 
@@ -111,9 +108,10 @@ df = pd.DataFrame({"Search Query": [query for query in search_queries for _ in r
 df
 '''
 
-st.echo(code)
+st.code(code, language='python')
+
 st.subheader('Output:')
-exec(code)
+st.write(pd.DataFrame({"Search Query": ["biryani in bangalore"], "Smaller URL": ["https://www.zomato.com/bangalore/biryani"]}))
 
 st.subheader('Project 2: Python Automation')
 st.write("Description: A Python script for automating a repetitive task.")
