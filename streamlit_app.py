@@ -1,14 +1,7 @@
-from collections import namedtuple
-import altair as alt
-import math
-import pandas as pd
 import streamlit as st
-import requests  # Import the requests module
-from pyowm import OWM
+import requests
 
 # Page 1: Anshuman's Portfolio
-
-# Add Personal Information
 st.title("Anshuman's Portfolio")
 st.markdown(
     "<p style='font-size: 20px; color: #555555;'>Finops & Revenue Analyst | Experience: 3+ years</p>",
@@ -66,18 +59,9 @@ st.markdown(
     "</ul>",
     unsafe_allow_html=True
 )
-def get_smaller_urls(search_query):
-    url = "https://google.com/search?q=" + search_query
-    request_result = requests.get(url)
-    search_results = request_result.text
-    start_index = search_results.find("https://www.zomato.com/")
-    end_index = search_results.find("&", start_index)
-    smaller_url = search_results[start_index:end_index]
-    return smaller_url
-# Page 2: Projects and Codes
-st.title('Projects and Codes')
 
 # Project 1: Data Scraping
+st.title('Projects and Codes')
 st.subheader('Project 1: Data Scraping')
 st.write("Description: A Python script to scrape data from a website.")
 
@@ -107,7 +91,7 @@ if st.button('Python Scraping: Click to Run'):
 
 if st.session_state.selected_project == 'Project 1: Data Scraping':
     st.subheader('Project 1: Data Scraping')
-    st.write("Description: A Python script to scrape  the first link from google")
+    st.write("Description: A Python script to scrape the first link from Google")
     st.code(code_project1, language='python')
     st.subheader('Output:')
     df = get_smaller_urls("biryani in bangalore")
@@ -120,31 +104,30 @@ st.write("Description: A Python script to fetch weather information for a given 
 def get_weather(city):
     api_key = "4cb3a44e7cab1adb19e17ecc44c6da11"  # Replace with your OpenWeatherMap API key
 
+    base_url = "http://api.openweathermap.org/data/2.5/weather"
+    params = {
+        "q": city,
+        "appid": api_key,
+        "units": "metric"
+    }
+
     try:
-        owm = OWM(api_key)
-        mgr = owm.weather_manager()
-        observation = mgr.weather_at_place(city)
-        weather = observation.weather
+        response = requests.get(base_url, params=params)
+        data = response.json()
 
-        city_name = observation.location.name
-        temperature = weather.temperature("celsius")["temp"]
-        weather_desc = weather.status
+        if data["cod"] == 200:
+            city_name = data["name"]
+            temperature = data["main"]["temp"]
+            weather_desc = data["weather"][0]["description"]
 
-        weather_info = f"City: {city_name}\nTemperature: {temperature}°C\nWeather: {weather_desc}"
-        st.write(weather_info)
+            weather_info = f"City: {city_name}\nTemperature: {temperature}°C\nWeather: {weather_desc}"
+            st.info(weather_info)
+        else:
+            st.error(f"Failed to fetch weather data: {data['message']}")
 
     except Exception as e:
-        st.write(f"Failed to fetch weather data: {e}")
+        st.error(f"Failed to fetch weather data: {e}")
 
-def on_submit():
-    city = city_entry.get()
+city = st.text_input("Enter city name:")
+if st.button("Get Weather"):
     get_weather(city)
-
-# GUI Setup
-label = st.markdown("Enter city name:")
-city_entry = st.text_input("City Name:")
-submit_button = st.button("Get Weather")
-
-if submit_button:
-    on_submit()
-
