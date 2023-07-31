@@ -4,6 +4,7 @@ import math
 import pandas as pd
 import streamlit as st
 import requests  # Import the requests module
+from pyowm import OWM
 
 # Page 1: Anshuman's Portfolio
 
@@ -111,3 +112,39 @@ if st.session_state.selected_project == 'Project 1: Data Scraping':
     st.subheader('Output:')
     df = get_smaller_urls("biryani in bangalore")
     st.write(df)
+
+# Project 2: Weather App
+st.subheader('Project 2: Weather App')
+st.write("Description: A Python script to fetch weather information for a given city.")
+
+def get_weather(city):
+    api_key = "4cb3a44e7cab1adb19e17ecc44c6da11"  # Replace with your OpenWeatherMap API key
+
+    try:
+        owm = OWM(api_key)
+        mgr = owm.weather_manager()
+        observation = mgr.weather_at_place(city)
+        weather = observation.weather
+
+        city_name = observation.location.name
+        temperature = weather.temperature("celsius")["temp"]
+        weather_desc = weather.status
+
+        weather_info = f"City: {city_name}\nTemperature: {temperature}°C\nWeather: {weather_desc}"
+        st.write(weather_info)
+
+    except Exception as e:
+        st.write(f"Failed to fetch weather data: {e}")
+
+def on_submit():
+    city = city_entry.get()
+    get_weather(city)
+
+# GUI Setup
+label = st.markdown("Enter city name:")
+city_entry = st.text_input("City Name:")
+submit_button = st.button("Get Weather")
+
+if submit_button:
+    on_submit()
+
