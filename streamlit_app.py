@@ -1,5 +1,7 @@
 import streamlit as st
 import requests
+import pandas as pd  
+
 
 # Page 1: Anshuman's Portfolio
 st.title("Anshuman's Portfolio")
