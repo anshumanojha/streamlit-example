@@ -2,6 +2,15 @@ import streamlit as st
 import requests
 import pandas as pd  
 
+def get_smaller_urls(search_query):
+    url = "https://google.com/search?q=" + search_query
+    request_result = requests.get(url)
+    search_results = request_result.text
+    start_index = search_results.find("https://www.zomato.com/")
+    end_index = search_results.find("&", start_index)
+    smaller_url = search_results[start_index:end_index]
+    return smaller_url
+
 
 # Page 1: Anshuman's Portfolio
 st.title("Anshuman's Portfolio")
