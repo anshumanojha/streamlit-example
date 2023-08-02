@@ -12,12 +12,14 @@ def get_smaller_urls(search_query):
     return smaller_url
 
 
-# Page 1: Anshuman's Portfolio
+
 st.title("Anshuman's Portfolio")
 st.markdown(
     "<p style='font-size: 20px; color: #555555;'>Finops & Revenue Analyst | Experience: 3+ years</p>",
     unsafe_allow_html=True
 )
+st.header('About Me')
+st.write("I am a Finops & Revenue Analyst with over 3 years of experience. I am passionate about data analysis, Python automation, and developing dashboards. My goal is to leverage data to make informed decisions and drive business growth. I have a keen interest in Machine Learning and Data Science, and I am constantly exploring new technologies to expand my skill set.")
 
 # Add links to LinkedIn and GitHub profiles
 st.markdown("[LinkedIn Profile](https://www.linkedin.com/in/anshuman-ojha-34093885/)")
