@@ -24,23 +24,6 @@ st.markdown("[LinkedIn Profile](https://www.linkedin.com/in/anshuman-ojha-340938
 st.markdown("[GitHub - Python Projects Automated Google Search](https://github.com/anshumanojha/pythonprojects/blob/master/Googlewebsearchauto.ipynb)")
 st.markdown("[GitHub - Python Projects Automated Location Automate](https://github.com/anshumanojha/pythonprojects/blob/master/browser.py)")
 
-# Create bar chart for tools data
-tools_data = [10, 10, 8, 9, 7]
-tools_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
-tools_chart = dict(zip(tools_labels, tools_data))
-
-# Create line chart for technology data
-technology_data = [9, 10, 10, 8, 7, 10]
-technology_labels = ['Superset', 'SQL', 'Python', 'AWS', 'AI', 'ML']
-technology_chart = dict(zip(technology_labels, technology_data))
-
-# Create pie chart for skills data
-skills_data = [30, 60, 60, 33, 50]
-skills_labels = ['Data Scraping', 'Python Automation', 'Cohort Analysis', 'Trend Analysis', 'Repayment Automation']
-skills_chart = dict(zip(skills_labels, skills_data))
-
-
-
 # Map section
 st.header('Location - Bengaluru')
 # Create a DataFrame with your location data
@@ -132,6 +115,21 @@ def get_weather(city):
 city = st.text_input("Enter city name:")
 if st.button("Get Weather"):
     get_weather(city)
+
+# Create bar chart for tools data
+tools_data = [10, 10, 8, 9, 7]
+tools_labels = ['MYSQL', 'Python', 'Dashboard Development', 'Power Bi']
+tools_chart = dict(zip(tools_labels, tools_data))
+
+# Create line chart for technology data
+technology_data = [9, 10, 10, 8, 7, 10]
+technology_labels = ['Superset', 'SQL', 'Python', 'AWS', 'AI', 'ML']
+technology_chart = dict(zip(technology_labels, technology_data))
+
+# Create pie chart for skills data
+skills_data = [30, 60, 60, 33, 50]
+skills_labels = ['Data Scraping', 'Python Automation', 'Cohort Analysis', 'Trend Analysis', 'Repayment Automation']
+skills_chart = dict(zip(skills_labels, skills_data))
 
 # Tools Known section
 st.header('Tools Known')
