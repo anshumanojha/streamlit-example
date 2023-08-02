@@ -24,13 +24,6 @@ st.markdown("[LinkedIn Profile](https://www.linkedin.com/in/anshuman-ojha-340938
 st.markdown("[GitHub - Python Projects Automated Google Search](https://github.com/anshumanojha/pythonprojects/blob/master/Googlewebsearchauto.ipynb)")
 st.markdown("[GitHub - Python Projects Automated Location Automate](https://github.com/anshumanojha/pythonprojects/blob/master/browser.py)")
 
-# Map section
-st.header('Location - Bengaluru')
-# Create a DataFrame with your location data
-location_df = pd.DataFrame({'LATITUDE': [12.9716], 'LONGITUDE': [77.5946]})
-st.map(location_df, zoom=10)
-
-# Certifications section
 st.header('Certifications')
 st.markdown(
     "<ul style='font-size: 18px; color: #333333; list-style-type: square;'>"
@@ -43,6 +36,14 @@ st.markdown(
     "</ul>",
     unsafe_allow_html=True
 )
+# Map section
+st.header('Location - Bengaluru')
+# Create a DataFrame with your location data
+location_df = pd.DataFrame({'LATITUDE': [12.9716], 'LONGITUDE': [77.5946]})
+st.map(location_df, zoom=10)
+
+# Certifications section
+
 
 # Project 1: Data Scraping
 st.title('Projects and Codes')
