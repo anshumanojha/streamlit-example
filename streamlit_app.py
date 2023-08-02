@@ -133,11 +133,14 @@ skills_chart = dict(zip(skills_labels, skills_data))
 
 col1, col2, col3 = st.columns(3)
 
-col1.header('Tools Known')
-col1.bar_chart(tools_chart, use_container_width=True)
+with col1:
+    st.header('Tools Known')
+    st.bar_chart(tools_chart, use_container_width=True)
 
-col2.header('Technology Known')
-col2.line_chart(technology_chart, use_container_width=True)
+with col2:
+    st.header('Technology Known')
+    st.line_chart(technology_chart, use_container_width=True)
 
-col3.header('Skills Proficiency')
-col3.bar_chart(skills_chart, use_container_width=True)
+with col3:
+    st.header('Skills Proficiency')
+    st.bar_chart(skills_chart, use_container_width=True)
