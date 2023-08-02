@@ -131,14 +131,13 @@ skills_data = [30, 60, 60, 33, 50]
 skills_labels = ['Data Scraping', 'Python Automation', 'Cohort Analysis', 'Trend Analysis', 'Repayment Automation']
 skills_chart = dict(zip(skills_labels, skills_data))
 
-# Tools Known section
-st.header('Tools Known')
-st.bar_chart(tools_chart, use_container_width=True)
+col1, col2, col3 = st.columns(3)
 
-# Technology Known section
-st.header('Technology Known')
-st.line_chart(technology_chart, use_container_width=True)
+col1.header('Tools Known')
+col1.bar_chart(tools_chart, use_container_width=True)
 
-# Skills Proficiency section
-st.header('Skills Proficiency')
-st.bar_chart(skills_chart, use_container_width=True)
+col2.header('Technology Known')
+col2.line_chart(technology_chart, use_container_width=True)
+
+col3.header('Skills Proficiency')
+col3.bar_chart(skills_chart, use_container_width=True)
