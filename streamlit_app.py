@@ -1,4 +1,4 @@
-```python
+
 import streamlit as st
 import requests
 import pandas as pd  
@@ -149,6 +149,6 @@ with col3:
     st.header('Skills Proficiency')
     st.bar_chart(skills_chart, use_container_width=True)
 
-```
+
 
 
