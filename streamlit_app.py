@@ -1,36 +1,29 @@
 import streamlit as st
-import base64
-import io
-import fitz
+import qrcode
 
-def convert_pdf_to_text(pdf_content):
-    doc = fitz.open(stream=pdf_content, filetype="pdf")
-    text = ""
-    for page_num in range(doc.page_count):
-        page = doc[page_num]
-        text += page.get_text()
-    doc.close()
-    return text
+# Streamlit app title
+st.title("QR Code Generator")
 
-def main():
-    st.title("PDF to Text Conversion")
-    
-    uploaded_file = st.file_uploader("Select a PDF File", type=["pdf"])
-    
-    if uploaded_file is not None:
-        pdf_content = uploaded_file.read()
-        
-        extracted_text = convert_pdf_to_text(pdf_content)
-        
-        # Display extracted text
-        st.subheader(f'Extracted Text from {uploaded_file.name}:')
-        st.text_area("Extracted Text", extracted_text, height=300)
-        
-        # Create a downloadable text file
-        txt_file_content = extracted_text.encode('utf-8')
-        txt_data_uri = base64.b64encode(txt_file_content).decode('utf-8')
-        st.download_button("Download as TXT", data=txt_data_uri, file_name='output.txt')
+# Input field for the user to enter the URL
+user_url = st.text_input("Enter the URL:")
 
-if __name__ == "__main__":
-    main()
+# Function to generate and display the QR code
+def generate_qr_code(url):
+    if url:
+        # Create the QR code
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=10,
+            border=4,
+        )
+        qr.add_data(url)
+        qr.make(fit=True)
+        qr_img = qr.make_image(fill_color="black", back_color="white")
 
+        # Display the QR code
+        st.image(qr_img, use_column_width=True, caption="QR Code")
+
+# Button to trigger QR code generation
+if st.button("Generate QR Code"):
+    generate_qr_code(user_url)
