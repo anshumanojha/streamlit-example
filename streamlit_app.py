@@ -1,7 +1,6 @@
 import streamlit as st
 import requests
 import pandas as pd
-import streamlit.components.v1 as components
 
 # Add HTML and JavaScript for the game
 game_code = """
@@ -29,7 +28,7 @@ game_code = """
         let colorToMatch = document.getElementById("color-display").innerText;
         if (selectedColor === colorToMatch) {
             score += 1;
-            st.text("Correct! Keep Going.")
+            st.text("Correct! Keep Going.");
         } else {
             st.text("Incorrect. Try Again.");
         }
@@ -51,6 +50,7 @@ game_code = """
 """
 
 st.title("Anshuman's Portfolio")
+
 # Add game container and portfolio container
 st.markdown(f"<div id='game-container'>{game_code}</div>", unsafe_allow_html=True)
 st.markdown("<div id='portfolio-container' style='display: none;'>", unsafe_allow_html=True)
@@ -192,5 +192,4 @@ city = st.text_input("Enter city name:")
 if st.button("Get Weather"):
     get_weather(city)
 
-
-
+# Add the rest of your existing code below
