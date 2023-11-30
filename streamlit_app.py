@@ -26,15 +26,15 @@ st.title("Anshuman's Portfolio with Odd One Out Game")
 game = OddOneOutGame()
 
 # Button to start a new round
-if st.button("Start New Round"):
+if st.button("Start New Round - Odd One Out Game"):
     game.new_round()
 
-# Display the current set
+# Display the current set for Odd One Out Game
 if game.current_set:
     st.write("Which one is the odd one out?")
     selected_option = st.radio("", game.current_set)
 
-    # Check user's answer
+    # Check user's answer for Odd One Out Game
     if st.button("Submit Answer"):
         game.answer = selected_option
         if game.answer in game.correct_answers:
@@ -49,7 +49,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.header('About Me')
-st.write("I am a Finops & Revenue Analyst with over 3 years of experience. I am passionate about data analysis, Python automation, and developing dashboards. My goal is to leverage data to make informed decisions and drive business growth. I have a keen interest in Machine Learning and Data Science, and I am constantly exploring new technologies to expand my skill set. Also, I have done automation")
+st.write("I am a Finops & Revenue Analyst with over 3 years of experience. I am passionate about data analysis, Python automation, and developing dashboards. My goal is to leverage data to make informed decisions and drive business growth. I have a keen interest in Machine Learning and Data Science, and I am constantly exploring new technologies to expand my skill set.Also i have done automation")
 
 # Add links to LinkedIn and GitHub profiles
 st.markdown("[LinkedIn Profile](https://www.linkedin.com/in/anshuman-ojha-34093885/)")
@@ -104,6 +104,7 @@ location_df = pd.DataFrame({'LATITUDE': [12.9716], 'LONGITUDE': [77.5946]})
 st.map(location_df, zoom=10)
 
 # Certifications section
+
 
 # Project 1: Data Scraping
 st.title('Projects and Codes')
