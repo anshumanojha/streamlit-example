@@ -53,14 +53,12 @@ def main():
         selected_option = st.radio("Select one:", game.current_set)
 
         # Check user's answer for Odd One Out Game
-        if st.button("Submit Answer"):
-            game.answer = selected_option
+        game.answer = selected_option
 
-            if game.answer in game.correct_answers:
-                st.success("Correct! Well done! You can now view the portfolio.")
-            else:
-                st.error("Oops! That's not the odd one out. Try again!")
-                return  # Stop execution if the answer is incorrect
+        if game.answer in game.correct_answers:
+            st.success("Correct! Well done! You can now view the portfolio.")
+        else:
+            st.error("Oops! That's not the odd one out. Try again!")
 
     # Rest of your existing code for the portfolio display
     st.title("Anshuman's Portfolio")
