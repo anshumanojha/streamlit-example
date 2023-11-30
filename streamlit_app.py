@@ -1,4 +1,6 @@
 import streamlit as st
+import requests
+import pandas as pd
 import random
 
 # Odd One Out Game Logic
@@ -18,7 +20,7 @@ class OddOneOutGame:
         self.answer = None
 
 # Streamlit App
-st.title("Odd One Out Game")
+st.title("Anshuman's Portfolio with Odd One Out Game")
 
 # Odd One Out Game
 game = OddOneOutGame()
@@ -40,8 +42,16 @@ if game.current_set:
         else:
             st.error("Oops! That's not the odd one out. Try again!")
 
+# Add the rest of your existing code below
+st.title("Anshuman's Portfolio")
+st.markdown(
+    "<p style='font-size: 20px; color: #555555;'>Finops & Revenue Analyst | Experience: 3+ years</p>",
+    unsafe_allow_html=True
+)
+st.header('About Me')
+st.write("I am a Finops & Revenue Analyst with over 3 years of experience. I am passionate about data analysis, Python automation, and developing dashboards. My goal is to leverage data to make informed decisions and drive business growth. I have a keen interest in Machine Learning and Data Science, and I am constantly exploring new technologies to expand my skill set. Also, I have done automation")
 
-
+# Add links to LinkedIn and GitHub profiles
 st.markdown("[LinkedIn Profile](https://www.linkedin.com/in/anshuman-ojha-34093885/)")
 st.markdown("[GitHub - Python Projects Automated Google Search](https://github.com/anshumanojha/pythonprojects/blob/master/Googlewebsearchauto.ipynb)")
 st.markdown("[GitHub - Python Projects Automated Location Automate](https://github.com/anshumanojha/pythonprojects/blob/master/browser.py)")
