@@ -2,69 +2,73 @@ import streamlit as st
 import requests
 import pandas as pd
 
-# Add HTML and JavaScript for the game
-game_code = """
-<script>
-    let colors = ["Red", "Green", "Blue", "Yellow", "Purple", "Orange"];
-    let score = 0;
-    let attempts = 0;
-    let max_attempts = 3;  // Adjust this as needed
-    let gameFinished = false;
+# Tic Tac Toe Game Logic
+class TicTacToe:
+    def __init__(self):
+        self.board = [' '] * 9
+        self.current_player = 'X'
+        self.winner = None
 
-    function startGame() {
-        document.getElementById("game-container").style.display = "block";
-        document.getElementById("portfolio-container").style.display = "none";
-        showColor();
-    }
+    def make_move(self, position):
+        if self.board[position] == ' ' and not self.winner:
+            self.board[position] = self.current_player
+            self.check_winner()
+            self.switch_player()
 
-    function showColor() {
-        let randomIndex = Math.floor(Math.random() * colors.length);
-        let colorToMatch = colors[randomIndex];
-        let colorElement = document.getElementById("color-display");
-        colorElement.innerText = colorToMatch;
-    }
+    def check_winner(self):
+        winning_combinations = [(0, 1, 2), (3, 4, 5), (6, 7, 8),
+                                (0, 3, 6), (1, 4, 7), (2, 5, 8),
+                                (0, 4, 8), (2, 4, 6)]
 
-    function checkMatch(selectedColor) {
-        let colorToMatch = document.getElementById("color-display").innerText;
-        if (selectedColor === colorToMatch) {
-            score += 1;
-            st.text("Correct! Keep Going.");
-        } else {
-            st.text("Incorrect. Try Again.");
-        }
+        for combo in winning_combinations:
+            if self.board[combo[0]] == self.board[combo[1]] == self.board[combo[2]] != ' ':
+                self.winner = self.current_player
 
-        attempts += 1;
-        if (attempts >= max_attempts) {
-            finishGame();
-        } else {
-            showColor();
-        }
-    }
+    def switch_player(self):
+        self.current_player = 'O' if self.current_player == 'X' else 'X'
 
-    function finishGame() {
-        gameFinished = true;
-        document.getElementById("game-container").style.display = "none";
-        document.getElementById("portfolio-container").style.display = "block";
-    }
-</script>
-"""
+# Streamlit App
+st.title("Anshuman's Portfolio with Tic Tac Toe Game")
 
-st.title("Anshuman's Portfolio")
+# Tic Tac Toe Game
+tic_tac_toe = TicTacToe()
 
-# Add game container and portfolio container
-st.markdown(f"<div id='game-container'>{game_code}</div>", unsafe_allow_html=True)
-st.markdown("<div id='portfolio-container' style='display: none;'>", unsafe_allow_html=True)
+# Button to start the Tic Tac Toe Game
+if st.button("Start Tic Tac Toe Game"):
+    st.sidebar.title("Tic Tac Toe Game")
+    
+    col1, col2, col3 = st.sidebar.beta_columns(3)
+    with col1:
+        if st.sidebar.button("", key="btn_0"):
+            tic_tac_toe.make_move(0)
+    with col2:
+        if st.sidebar.button("", key="btn_1"):
+            tic_tac_toe.make_move(1)
+    with col3:
+        if st.sidebar.button("", key="btn_2"):
+            tic_tac_toe.make_move(2)
 
-# Button to start the game
-if st.button("Start Color Matching Game"):
-    st.markdown("<script>startGame();</script>", unsafe_allow_html=True)
+    col4, col5, col6 = st.sidebar.beta_columns(3)
+    with col4:
+        if st.sidebar.button("", key="btn_3"):
+            tic_tac_toe.make_move(3)
+    with col5:
+        if st.sidebar.button("", key="btn_4"):
+            tic_tac_toe.make_move(4)
+    with col6:
+        if st.sidebar.button("", key="btn_5"):
+            tic_tac_toe.make_move(5)
 
-# Game UI
-st.markdown("<div id='color-display'></div>", unsafe_allow_html=True)
-selected_color = st.selectbox("Select the Matching Color", ["Red", "Green", "Blue", "Yellow", "Purple", "Orange"], key="selected_color", on_change="checkMatch(value)")
-
-# Close the portfolio container
-st.markdown("</div>", unsafe_allow_html=True)
+    col7, col8, col9 = st.sidebar.beta_columns(3)
+    with col7:
+        if st.sidebar.button("", key="btn_6"):
+            tic_tac_toe.make_move(6)
+    with col8:
+        if st.sidebar.button("", key="btn_7"):
+            tic_tac_toe.make_move(7)
+    with col9:
+        if st.sidebar.button("", key="btn_8"):
+            tic_tac_toe.make_move(8)
 
 # Add the rest of your existing code below
 
