@@ -1,83 +1,47 @@
 import streamlit as st
-import pandas as pd
+import random
 
-# Tic Tac Toe Game Logic
-class TicTacToe:
+# Odd One Out Game Logic
+class OddOneOutGame:
     def __init__(self):
-        self.board = [' '] * 9
-        self.current_player = 'X'
-        self.winner = None
+        self.sets = [
+            ['Apple', 'Banana', 'Orange', 'Carrot'],
+            ['Dog', 'Cat', 'Fish', 'Bird'],
+            ['Red', 'Blue', 'Green', 'Chair']
+        ]
+        self.correct_answers = ['Carrot', 'Fish', 'Chair']
+        self.current_set = None
+        self.answer = None
 
-    def make_move(self, position):
-        if self.board[position] == ' ' and not self.winner:
-            self.board[position] = self.current_player
-            self.check_winner()
-            self.switch_player()
-
-    def check_winner(self):
-        winning_combinations = [(0, 1, 2), (3, 4, 5), (6, 7, 8),
-                                (0, 3, 6), (1, 4, 7), (2, 5, 8),
-                                (0, 4, 8), (2, 4, 6)]
-
-        for combo in winning_combinations:
-            if self.board[combo[0]] == self.board[combo[1]] == self.board[combo[2]] != ' ':
-                self.winner = self.current_player
-
-    def switch_player(self):
-        self.current_player = 'O' if self.current_player == 'X' else 'X'
+    def new_round(self):
+        self.current_set = random.choice(self.sets)
+        self.answer = None
 
 # Streamlit App
-st.title("Anshuman's Portfolio with Tic Tac Toe Game")
+st.title("Odd One Out Game")
 
-# Tic Tac Toe Game
-tic_tac_toe = TicTacToe()
+# Odd One Out Game
+game = OddOneOutGame()
 
-# Button to start the Tic Tac Toe Game
-if st.button("Start Tic Tac Toe Game"):
-    st.sidebar.title("Tic Tac Toe Game")
-    
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        if st.sidebar.button("", key="btn_0"):
-            tic_tac_toe.make_move(0)
-    with col2:
-        if st.sidebar.button("", key="btn_1"):
-            tic_tac_toe.make_move(1)
-    with col3:
-        if st.sidebar.button("", key="btn_2"):
-            tic_tac_toe.make_move(2)
+# Button to start a new round
+if st.button("Start New Round"):
+    game.new_round()
 
-    col4, col5, col6 = st.columns(3)
-    with col4:
-        if st.sidebar.button("", key="btn_3"):
-            tic_tac_toe.make_move(3)
-    with col5:
-        if st.sidebar.button("", key="btn_4"):
-            tic_tac_toe.make_move(4)
-    with col6:
-        if st.sidebar.button("", key="btn_5"):
-            tic_tac_toe.make_move(5)
+# Display the current set
+if game.current_set:
+    st.write("Which one is the odd one out?")
+    selected_option = st.radio("", game.current_set)
 
-    col7, col8, col9 = st.columns(3)
-    with col7:
-        if st.sidebar.button("", key="btn_6"):
-            tic_tac_toe.make_move(6)
-    with col8:
-        if st.sidebar.button("", key="btn_7"):
-            tic_tac_toe.make_move(7)
-    with col9:
-        if st.sidebar.button("", key="btn_8"):
-            tic_tac_toe.make_move(8)
-
-# Add the rest of your existing code below
+    # Check user's answer
+    if st.button("Submit Answer"):
+        game.answer = selected_option
+        if game.answer in game.correct_answers:
+            st.success("Correct! Well done!")
+        else:
+            st.error("Oops! That's not the odd one out. Try again!")
 
 
-# Add the rest of your existing code below
 
-
-# Add the rest of your existing code below
-
-# Add links to LinkedIn and GitHub profiles
 st.markdown("[LinkedIn Profile](https://www.linkedin.com/in/anshuman-ojha-34093885/)")
 st.markdown("[GitHub - Python Projects Automated Google Search](https://github.com/anshumanojha/pythonprojects/blob/master/Googlewebsearchauto.ipynb)")
 st.markdown("[GitHub - Python Projects Automated Location Automate](https://github.com/anshumanojha/pythonprojects/blob/master/browser.py)")
