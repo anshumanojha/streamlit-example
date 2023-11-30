@@ -37,10 +37,13 @@ if game.current_set:
     # Check user's answer for Odd One Out Game
     if st.button("Submit Answer"):
         game.answer = selected_option
-        if game.answer in game.correct_answers:
-            st.success("Correct! Well done!")
-        else:
-            st.error("Oops! That's not the odd one out. Try again!")
+
+# Conditional to display result after submitting answer
+if game.answer is not None:
+    if game.answer in game.correct_answers:
+        st.success("Correct! Well done!")
+    else:
+        st.error("Oops! That's not the odd one out. Try again!")
 
 # Add the rest of your existing code below
 st.title("Anshuman's Portfolio")
@@ -48,6 +51,8 @@ st.markdown(
     "<p style='font-size: 20px; color: #555555;'>Finops & Revenue Analyst | Experience: 3+ years</p>",
     unsafe_allow_html=True
 )
+# ... (rest of your code)
+
 st.header('About Me')
 st.write("I am a Finops & Revenue Analyst with over 3 years of experience. I am passionate about data analysis, Python automation, and developing dashboards. My goal is to leverage data to make informed decisions and drive business growth. I have a keen interest in Machine Learning and Data Science, and I am constantly exploring new technologies to expand my skill set.Also i have done automation")
 
