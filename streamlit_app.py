@@ -1,25 +1,3 @@
-import streamlit as st
-import requests
-import pandas as pd
-import random
-
-# Odd One Out Game Logic
-class OddOneOutGame:
-    def __init__(self):
-        self.sets = [
-            ['Apple', 'Banana', 'Orange', 'Carrot'],
-            ['Dog', 'Cat', 'Fish', 'Bird'],
-            ['Red', 'Blue', 'Green', 'Chair']
-        ]
-        self.correct_answers = ['Carrot', 'Fish', 'Chair']
-        self.current_set = None
-        self.answer = None
-
-    def new_round(self):
-        self.current_set = random.choice(self.sets)
-        self.answer = None
-
-# Streamlit App
 def main():
     st.title("Anshuman's Portfolio with Odd One Out Game")
 
@@ -38,19 +16,15 @@ def main():
         # Check user's answer for Odd One Out Game
         if st.button("Submit Answer"):
             game.answer = selected_option
-            st.experimental_rerun()
 
-    # Conditional to display result after submitting answer
-    if game.answer is not None:
-        if game.answer in game.correct_answers:
-            st.success("Correct! Well done! You can now view the portfolio.")
-            display_portfolio()
-
-        else:
-            st.error("Oops! That's not the odd one out. Try again!")
+            if game.answer in game.correct_answers:
+                st.success("Correct! Well done! You can now view the portfolio.")
+                display_portfolio()
+            else:
+                st.error("Oops! That's not the odd one out. Try again!")
 
 def display_portfolio():
-    # Rest of your existing code
+    # Rest of your existing code for the portfolio display
     st.title("Anshuman's Portfolio")
     st.markdown(
         "<p style='font-size: 20px; color: #555555;'>Finops & Revenue Analyst | Experience: 3+ years</p>",
