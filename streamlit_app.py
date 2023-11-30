@@ -1,3 +1,25 @@
+import streamlit as st
+import requests
+import pandas as pd
+import random
+
+# Odd One Out Game Logic
+class OddOneOutGame:
+    def __init__(self):
+        self.sets = [
+            ['Apple', 'Banana', 'Orange', 'Carrot'],
+            ['Dog', 'Cat', 'Fish', 'Bird'],
+            ['Red', 'Blue', 'Green', 'Chair']
+        ]
+        self.correct_answers = ['Carrot', 'Fish', 'Chair']
+        self.current_set = None
+        self.answer = None
+
+    def new_round(self):
+        self.current_set = random.choice(self.sets)
+        self.answer = None
+
+# Streamlit App
 def main():
     st.title("Anshuman's Portfolio with Odd One Out Game")
 
