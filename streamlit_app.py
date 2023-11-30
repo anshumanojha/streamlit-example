@@ -33,7 +33,7 @@ def main():
     # Display the current set for Odd One Out Game
     if game.current_set:
         st.write("Which one is the odd one out?")
-        selected_option = st.radio("", game.current_set)
+        selected_option = st.radio("Select one:", game.current_set)
 
         # Check user's answer for Odd One Out Game
         if st.button("Submit Answer"):
