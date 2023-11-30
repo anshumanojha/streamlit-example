@@ -1,31 +1,77 @@
 import streamlit as st
 import requests
-import pandas as pd  
+import pandas as pd
+import streamlit.components.v1 as components
 
-def get_smaller_urls(search_query):
-    url = "https://google.com/search?q=" + search_query
-    request_result = requests.get(url)
-    search_results = request_result.text
-    start_index = search_results.find("https://www.zomato.com/")
-    end_index = search_results.find("&", start_index)
-    smaller_url = search_results[start_index:end_index]
-    return smaller_url
+# Add HTML and JavaScript for the game
+game_code = """
+<script>
+    let colors = ["Red", "Green", "Blue", "Yellow", "Purple", "Orange"];
+    let score = 0;
+    let attempts = 0;
+    let max_attempts = 3;  // Adjust this as needed
+    let gameFinished = false;
 
+    function startGame() {
+        document.getElementById("game-container").style.display = "block";
+        document.getElementById("portfolio-container").style.display = "none";
+        showColor();
+    }
 
+    function showColor() {
+        let randomIndex = Math.floor(Math.random() * colors.length);
+        let colorToMatch = colors[randomIndex];
+        let colorElement = document.getElementById("color-display");
+        colorElement.innerText = colorToMatch;
+    }
+
+    function checkMatch(selectedColor) {
+        let colorToMatch = document.getElementById("color-display").innerText;
+        if (selectedColor === colorToMatch) {
+            score += 1;
+            st.text("Correct! Keep Going.")
+        } else {
+            st.text("Incorrect. Try Again.");
+        }
+
+        attempts += 1;
+        if (attempts >= max_attempts) {
+            finishGame();
+        } else {
+            showColor();
+        }
+    }
+
+    function finishGame() {
+        gameFinished = true;
+        document.getElementById("game-container").style.display = "none";
+        document.getElementById("portfolio-container").style.display = "block";
+    }
+</script>
+"""
 
 st.title("Anshuman's Portfolio")
-st.markdown(
-    "<p style='font-size: 20px; color: #555555;'>Finops & Revenue Analyst | Experience: 3+ years</p>",
-    unsafe_allow_html=True
-)
-st.header('About Me')
-st.write("I am a Finops & Revenue Analyst with over 3 years of experience. I am passionate about data analysis, Python automation, and developing dashboards. My goal is to leverage data to make informed decisions and drive business growth. I have a keen interest in Machine Learning and Data Science, and I am constantly exploring new technologies to expand my skill set.Also i have done automation")
+# Add game container and portfolio container
+st.markdown(f"<div id='game-container'>{game_code}</div>", unsafe_allow_html=True)
+st.markdown("<div id='portfolio-container' style='display: none;'>", unsafe_allow_html=True)
+
+# Button to start the game
+if st.button("Start Color Matching Game"):
+    st.markdown("<script>startGame();</script>", unsafe_allow_html=True)
+
+# Game UI
+st.markdown("<div id='color-display'></div>", unsafe_allow_html=True)
+selected_color = st.selectbox("Select the Matching Color", ["Red", "Green", "Blue", "Yellow", "Purple", "Orange"], key="selected_color", on_change="checkMatch(value)")
+
+# Close the portfolio container
+st.markdown("</div>", unsafe_allow_html=True)
+
+# Add the rest of your existing code below
 
 # Add links to LinkedIn and GitHub profiles
 st.markdown("[LinkedIn Profile](https://www.linkedin.com/in/anshuman-ojha-34093885/)")
 st.markdown("[GitHub - Python Projects Automated Google Search](https://github.com/anshumanojha/pythonprojects/blob/master/Googlewebsearchauto.ipynb)")
 st.markdown("[GitHub - Python Projects Automated Location Automate](https://github.com/anshumanojha/pythonprojects/blob/master/browser.py)")
-
 
 # Create bar chart for tools data
 tools_data = [10, 10, 8, 9, 7]
@@ -75,7 +121,6 @@ location_df = pd.DataFrame({'LATITUDE': [12.9716], 'LONGITUDE': [77.5946]})
 st.map(location_df, zoom=10)
 
 # Certifications section
-
 
 # Project 1: Data Scraping
 st.title('Projects and Codes')
@@ -146,3 +191,6 @@ def get_weather(city):
 city = st.text_input("Enter city name:")
 if st.button("Get Weather"):
     get_weather(city)
+
+
+
