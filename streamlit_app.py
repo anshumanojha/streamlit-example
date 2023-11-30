@@ -1,5 +1,4 @@
 import streamlit as st
-import requests
 import pandas as pd
 
 # Tic Tac Toe Game Logic
@@ -37,7 +36,7 @@ tic_tac_toe = TicTacToe()
 if st.button("Start Tic Tac Toe Game"):
     st.sidebar.title("Tic Tac Toe Game")
     
-    col1, col2, col3 = st.sidebar.beta_columns(3)
+    col1, col2, col3 = st.beta_columns(3)
     with col1:
         if st.sidebar.button("", key="btn_0"):
             tic_tac_toe.make_move(0)
@@ -48,7 +47,7 @@ if st.button("Start Tic Tac Toe Game"):
         if st.sidebar.button("", key="btn_2"):
             tic_tac_toe.make_move(2)
 
-    col4, col5, col6 = st.sidebar.beta_columns(3)
+    col4, col5, col6 = st.beta_columns(3)
     with col4:
         if st.sidebar.button("", key="btn_3"):
             tic_tac_toe.make_move(3)
@@ -69,6 +68,9 @@ if st.button("Start Tic Tac Toe Game"):
     with col9:
         if st.sidebar.button("", key="btn_8"):
             tic_tac_toe.make_move(8)
+
+# Add the rest of your existing code below
+
 
 # Add the rest of your existing code below
 
