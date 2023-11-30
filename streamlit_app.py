@@ -38,6 +38,7 @@ def main():
         # Check user's answer for Odd One Out Game
         if st.button("Submit Answer"):
             game.answer = selected_option
+            st.experimental_rerun()
 
     # Conditional to display result after submitting answer
     if game.answer is not None:
