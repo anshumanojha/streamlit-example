@@ -48,6 +48,9 @@ st.markdown(
     "<p style='font-size: 20px; color: #555555;'>Finops & Revenue Analyst | Experience: 3+ years</p>",
     unsafe_allow_html=True
 )
+# ... (rest of your code)
+
+)
 st.header('About Me')
 st.write("I am a Finops & Revenue Analyst with over 3 years of experience. I am passionate about data analysis, Python automation, and developing dashboards. My goal is to leverage data to make informed decisions and drive business growth. I have a keen interest in Machine Learning and Data Science, and I am constantly exploring new technologies to expand my skill set.Also i have done automation")
 
