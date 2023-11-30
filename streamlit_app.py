@@ -40,12 +40,10 @@ def main():
             game.answer = selected_option
 
             if game.answer in game.correct_answers:
-                st.success("Correct! Well done! You can now view the portfolio.")
-                display_portfolio()
+                st.success("Correct! Well done!")
             else:
                 st.error("Oops! That's not the odd one out. Try again!")
 
-def display_portfolio():
     # Rest of your existing code for the portfolio display
     st.title("Anshuman's Portfolio")
     st.markdown(
