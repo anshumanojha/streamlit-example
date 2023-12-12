@@ -7,7 +7,7 @@ st.title("Anshuman's Resume")
 st.header("Personal Information")
 
 # Location Input
-location = st.text_input("Location:", "Your Location")
+location = st.text_input("Location:", "Bangalore")
 
 # Display other personal information
 st.write("Name: Anshuman")
@@ -16,14 +16,9 @@ st.write("Email: your.email@example.com")
 
 # Work Experience
 st.header("Work Experience")
-st.subheader("Software Developer - XYZ Company")
-st.write("Duration: January 2020 - Present")
-st.write("Description: Worked on various projects, including web development and database management.")
-
-# Education
-st.header("Education")
-st.write("Bachelor of Science in Computer Science - ABC University")
-st.write("Graduation Year: 2019")
+st.subheader("Operations Analyst - Freo")
+st.write("Duration: 3+ years")
+st.write("Description: Worked as an Operations Analyst at Freo, focusing on various operational tasks.")
 
 # Skills
 st.header("Skills")
@@ -32,6 +27,10 @@ st.write("- Web Development")
 st.write("- Database Management")
 st.write("- Streamlit")
 st.write("- SQL")
+
+# Show map for Bangalore
+st.header("Location Map - Bangalore")
+st.map(location="Bangalore")
 
 # SQL Query Suggestor
 st.header('SQL Query Suggestor')
