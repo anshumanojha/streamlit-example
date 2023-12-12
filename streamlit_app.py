@@ -13,18 +13,18 @@ location = st.text_input("Location:", "Bangalore")
 # Display other personal information
 st.write("Name: Anshuman")
 st.write(f"Location: {location}")
-st.write("Email: your.email@example.com")
+st.write("Email: anshumanojha94@gmail.com")
 
 # Work Experience
 st.header("Work Experience")
 st.subheader("Operations Analyst - Freo")
 st.write("Duration: 3+ years")
-st.write("Description: Worked as an Operations Analyst at Freo, focusing on various operational tasks.")
+st.write("Description: Worked as an Operations Analyst at Freo, focusing on various operational tasks.\n Made dashboard for various operational data.\n dived into revenue data month on month")
 
 # Skills
 st.header("Skills")
 st.write("- Python")
-st.write("- Web Development")
+st.write("- Excel")
 st.write("- Database Management")
 st.write("- Streamlit")
 st.write("- SQL")
