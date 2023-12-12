@@ -13,6 +13,9 @@ location = st.write("Location:", "Bangalore")
 
 # Display other personal information
 st.write("Name: Anshuman")
+st.write("Designation-Finops Analyst")
+st.write("Contact-877743144")
+
 st.write("Email: anshumanojha94@gmail.com")
 
 # Work Experience
