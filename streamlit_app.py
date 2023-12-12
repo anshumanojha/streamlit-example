@@ -3,7 +3,7 @@ import pandas as pd
 import random
 
 # Anshuman's Resume
-st.title("Anshuman's Resume")
+st.title("Anshuman Ojha's Resume")
 
 # Personal Information
 st.header("Personal Information")
