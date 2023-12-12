@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 # Anshuman's Resume
 st.title("Anshuman's Resume")
@@ -30,7 +31,11 @@ st.write("- SQL")
 
 # Show map for Bangalore
 st.header("Location Map - Bangalore")
-st.map(location="Bangalore")
+location_data = pd.DataFrame({
+    "latitude": [12.9716],  # Bangalore latitude
+    "longitude": [77.5946]  # Bangalore longitude
+})
+st.map(location_data)
 
 # SQL Query Suggestor
 st.header('SQL Query Suggestor')
