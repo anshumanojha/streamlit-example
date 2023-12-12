@@ -12,7 +12,6 @@ location = st.write("Location:", "Bangalore")
 
 # Display other personal information
 st.write("Name: Anshuman")
-st.write(f"Location: {location}")
 st.write("Email: anshumanojha94@gmail.com")
 
 # Work Experience
