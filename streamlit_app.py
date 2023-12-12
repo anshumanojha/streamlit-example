@@ -8,7 +8,7 @@ st.title("Anshuman's Resume")
 st.header("Personal Information")
 
 # Location Input
-location = st.text_input("Location:", "Bangalore")
+location = st.write("Location:", "Bangalore")
 
 # Display other personal information
 st.write("Name: Anshuman")
