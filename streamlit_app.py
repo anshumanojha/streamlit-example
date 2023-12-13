@@ -12,7 +12,7 @@ def generate_pdf():
     pdf.setFont("Helvetica", 14)
 
     # Add borders to the PDF
-    pdf.line(100, 800, 500, 800)  # Top border
+    pdf.line(100, 200, 200, 200)  # Top border
     pdf.line(100, 800, 100, 0)    # Left border
     pdf.line(100, 0, 500, 0)      # Bottom border
     pdf.line(500, 0, 500, 800)    # Right border
