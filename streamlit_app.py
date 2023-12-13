@@ -12,10 +12,11 @@ def generate_pdf():
     pdf.setFont("Helvetica", 14)
 
     # Add borders to the PDF
-    pdf.line(100, 200, 200, 200)  # Top border
-    pdf.line(100, 800, 100, 0)    # Left border
-    pdf.line(100, 0, 500, 0)      # Bottom border
-    pdf.line(500, 0, 500, 800)    # Right border
+    page_width, page_height = letter
+    pdf.line(0, page_height, page_width, page_height)  # Top border
+    pdf.line(0, page_height, 0, 0)                     # Left border
+    pdf.line(0, 0, page_width, 0)                      # Bottom border
+    pdf.line(page_width, 0, page_width, page_height)
 
     # Set up the PDF content with center alignment
     pdf.drawString(200, 780, "Anshuman Ojha's Resume")
