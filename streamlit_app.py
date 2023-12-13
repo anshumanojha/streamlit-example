@@ -1,5 +1,6 @@
 import streamlit as st
 from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
 from io import BytesIO
 import pandas as pd
 
@@ -8,83 +9,21 @@ def generate_pdf():
     buffer = BytesIO()
 
     # Create a PDF object
-    pdf = canvas.Canvas(buffer)
-
-    # Set up the PDF content
+    pdf = canvas.Canvas(buffer, pagesize=letter)
     pdf.setFont("Helvetica", 14)
-    pdf.drawString(100, 800, "Anshuman Ojha's Resume")
-    pdf.setFont("Helvetica", 12)
 
-    # Personal Information
-    pdf.drawString(100, 780, "Personal Information:")
-    pdf.drawString(120, 760, f"Name: Anshuman")
-    pdf.drawString(120, 740, f"Designation: Finops Analyst")
-    pdf.drawString(120, 720, f"Contact: 877743144")
-    pdf.drawString(120, 700, f"Email: anshumanojha94@gmail.com")
-    pdf.drawString(120, 680, f"Location: Bengaluru")
-    pdf.drawString(120, 660, f"LinkedIn: https://www.linkedin.com/in/anshuman-ojha-34093885/")
+    # Add borders to the PDF
+    pdf.line(100, 800, 500, 800)  # Top border
+    pdf.line(100, 800, 100, 0)    # Left border
+    pdf.line(100, 0, 500, 0)      # Bottom border
+    pdf.line(500, 0, 500, 800)    # Right border
 
-    # Skills
-    pdf.drawString(100, 630, "Skills:")
-    pdf.drawString(120, 610, "- Python")
-    pdf.drawString(120, 595, "- SQL")
-    pdf.drawString(120, 580, "- Advanced Excel")
-    pdf.drawString(120, 565, "- Power BI")
-    pdf.drawString(120, 550, "- SuperSet")
+    # Set up the PDF content with center alignment
+    pdf.drawString(300, 780, "Anshuman Ojha's Resume")
+    pdf.line(100, 775, 500, 775)  # Top border for header
 
-    # Work Experience
-    pdf.setFont("Helvetica-Bold", 12)
-    pdf.drawString(100, 520, "Work Experience:")
-    pdf.setFont("Helvetica", 11)
+    # ... (rest of the content)
 
-    # Finops(Revenue&Recon Analyst) - Freo
-    pdf.drawString(120, 500, "Finops(Revenue&Recon Analyst) - Freo")
-    pdf.drawString(140, 480, "Dec 2020 - Present")
-    pdf.drawString(140, 465, "- MIS")
-    pdf.drawString(140, 450, "- Revenue automation")
-    pdf.drawString(140, 435, "- Partner onboarding")
-    pdf.drawString(140, 420, "- Made dashboards to check repayment")
-    pdf.drawString(140, 405, "- Day-to-day repayment recon")
-    pdf.drawString(140, 390, "- Solving payments disputes")
-    pdf.drawString(140, 375, "- Development and verification of monthly partner invoices")
-    pdf.drawString(140, 360, "- Handling Data required for partners and vendors")
-    pdf.drawString(140, 345, "- Data verification and analysis")
-    pdf.drawString(140, 330, "- Data correction")
-
-    # Associate(operations) - Freo
-    pdf.drawString(120, 300, "Associate(Operations) - Freo")
-    pdf.drawString(140, 280, "Dec 2019 - Nov 2020")
-    pdf.drawString(140, 265, "- Relevant description for the role")
-
-    # Projects
-    pdf.setFont("Helvetica-Bold", 12)
-    pdf.drawString(100, 235, "Projects:")
-    pdf.setFont("Helvetica", 11)
-    pdf.drawString(120, 215, "Data Science Certification Lead - May 2020")
-    pdf.drawString(120, 200, "Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
-
-    # Certifications
-    pdf.setFont("Helvetica-Bold", 12)
-    pdf.drawString(100, 170, "Certifications:")
-    pdf.setFont("Helvetica", 11)
-    pdf.drawString(120, 150, "Data Science Certification:")
-    pdf.drawString(140, 135, "Certified by IBM in association with Coursera")
-    pdf.drawString(140, 120, "Link: [IBM Data Science Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
-
-    # Additional Certifications
-    pdf.drawString(120, 105, "Python for Data Science and AI Development")
-    pdf.drawString(140, 90, "Lead")
-    pdf.drawString(140, 75, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
-
-    pdf.drawString(120, 60, "Databases and SQL with Python")
-    pdf.drawString(140, 45, "Lead")
-    pdf.drawString(140, 30, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
-
-    pdf.drawString(120, 15, "Data Visualization with Python")
-    pdf.drawString(140, 0, "Lead")
-    pdf.drawString(140, -15, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
-
-    # Save the PDF to the buffer
     pdf.save()
 
     # Set up download button
