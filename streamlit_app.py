@@ -10,13 +10,23 @@ def generate_pdf():
     # Create a PDF object
     pdf = canvas.Canvas(buffer)
 
-    # Set up the PDF content (you may need to adjust the coordinates and styles)
+    # Set up the PDF content
+    pdf.setFont("Helvetica", 14)
     pdf.drawString(100, 800, "Anshuman Ojha's Resume")
+    pdf.setFont("Helvetica", 12)
     pdf.drawString(100, 780, "Personal Information:")
     pdf.drawString(120, 760, f"Name: Anshuman")
     pdf.drawString(120, 740, f"Designation: Finops Analyst")
     pdf.drawString(120, 720, f"Contact: 877743144")
     pdf.drawString(120, 700, f"Email: anshumanojha94@gmail.com")
+
+    # Work Experience
+    pdf.setFont("Helvetica-Bold", 12)
+    pdf.drawString(100, 670, "Work Experience:")
+    pdf.setFont("Helvetica", 11)
+    pdf.drawString(120, 650, "- MIS")
+    pdf.drawString(120, 635, "- Revenue automation")
+    # Add other work experience details
 
     # ... Add the rest of the content
 
@@ -31,8 +41,19 @@ def generate_pdf():
         key="pdf-download",
     )
 
+# Set page layout
+st.set_page_config(
+    page_title="Anshuman Ojha's Resume",
+    page_icon=":clipboard:",
+    layout="wide",
+)
+
 # Anshuman's Resume
 st.title("Anshuman Ojha's Resume")
+
+# Generate PDF button at the top-right corner
+if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
+    generate_pdf()
 
 # Personal Information
 st.header("Personal Information")
@@ -55,14 +76,7 @@ st.write("Duration: Dec 2020 - Present")
 st.write("Description:")
 st.write("- MIS")
 st.write("- Revenue automation")
-st.write("- Partner onboarding")
-st.write("- Made dashboards to check repayment")
-st.write("- Day-to-day repayment reconciliation")
-st.write("- Solving payments disputes")
-st.write("- Development and verification of monthly partner invoices")
-st.write("- Handling data required for partners and vendors")
-st.write("- Data verification and analysis")
-st.write("- Data correction")
+# Add other work experience details
 
 # Previous Experience
 st.subheader("Associate(Operations) - Freo")
@@ -109,7 +123,3 @@ location_data = pd.DataFrame({
 st.map(location_data)
 
 # SQL Query Suggestor (retain the existing code)
-
-# Generate PDF button at the top right corner
-if st.button("Generate PDF"):
-    generate_pdf()
