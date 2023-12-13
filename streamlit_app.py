@@ -19,8 +19,8 @@ def generate_pdf():
     pdf.line(page_width, 0, page_width, page_height)
 
     # Set up the PDF content with center alignment
-    pdf.drawString(200, 780, "Anshuman Ojha's Resume")
-    pdf.line(100, 775, 500, 775)  # Top border for header
+    pdf.drawString(20, page_height - 20, "Anshuman Ojha's Resume")
+    pdf.line(0, page_height - 25, page_width, page_height - 25)  # Top border for header
 
     # Personal Information
     pdf.drawString(100, 750, "Personal Information:")
