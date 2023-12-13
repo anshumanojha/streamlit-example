@@ -9,7 +9,7 @@ def generate_pdf():
 
     # Create a PDF object
     pdf = canvas.Canvas(buffer, pagesize=letter)
-    pdf.setFont("sans-serif", 8)  # Change the font and size as needed
+    pdf.setFont("Helvetica", 8)  # Change the font and size as needed
 
     # Add borders to the PDF
     page_width, page_height = letter
