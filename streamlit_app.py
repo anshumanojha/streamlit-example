@@ -9,63 +9,72 @@ def generate_pdf():
 
     # Create a PDF object
     pdf = canvas.Canvas(buffer, pagesize=letter)
-    pdf.setFont("Helvetica", 14)
+    pdf.setFont("Helvetica-Bold", 16)  # Bolder and larger font for the header
 
     # Add borders to the PDF
     page_width, page_height = letter
     pdf.line(0, page_height, page_width, page_height)  # Top border
     pdf.line(0, page_height, 0, 0)                     # Left border
     pdf.line(0, 0, page_width, 0)                      # Bottom border
-    pdf.line(page_width, 0, page_width, page_height)
+    pdf.line(page_width, 0, page_width, page_height)   # Right border
 
-    # Set up the PDF content with center alignment
+    # Set up the PDF content with left alignment
     pdf.drawString(20, page_height - 20, "Anshuman Ojha's Resume")
     pdf.line(0, page_height - 25, page_width, page_height - 25)  # Top border for header
 
     # Personal Information
-    pdf.drawString(100, 750, "Personal Information:")
-    pdf.drawString(100, 730, "Location: Bangalore")
-    pdf.drawString(100, 710, "Name: Anshuman")
-    pdf.drawString(100, 690, "Designation: Finops Analyst")
-    pdf.drawString(100, 670, "Contact: 877743144")
-    pdf.drawString(100, 650, "Email: anshumanojha94@gmail.com")
+    pdf.setFont("Helvetica", 12)  # Reset font size for the content
+    pdf.drawString(20, page_height - 50, "Personal Information:")
+    pdf.drawString(20, page_height - 70, "Location: Bangalore")
+    pdf.drawString(20, page_height - 90, "Name: Anshuman")
+    pdf.drawString(20, page_height - 110, "Designation: Finops Analyst")
+    pdf.drawString(20, page_height - 130, "Contact: 877743144")
+    pdf.drawString(20, page_height - 150, "Email: anshumanojha94@gmail.com")
 
     # Work Experience
-    pdf.drawString(100, 620, "Work Experience:")
-    pdf.drawString(100, 600, "Finops(Revenue&Recon Analyst) - Freo")
-    pdf.drawString(120, 580, "Duration: Dec 2020 - Present")
-    pdf.drawString(120, 560, "Description:")
-    pdf.drawString(140, 540, "- MIS")
-    pdf.drawString(140, 520, "- Revenue automation")
-    pdf.drawString(140, 500, "- Partner onboarding")
-    pdf.drawString(140, 480, "- Made dashboards to check repayment")
-    pdf.drawString(140, 460, "- Day-to-day repayment recon")
-    pdf.drawString(140, 440, "- Solving payments disputes")
-    pdf.drawString(140, 420, "- Development and verification of monthly partner invoices")
-    pdf.drawString(140, 400, "- Handling Data required for partners and vendors")
-    pdf.drawString(140, 380, "- Data verification and analysis")
-    pdf.drawString(140, 360, "- Data correction")
+    pdf.drawString(20, page_height - 190, "Work Experience:")
+    pdf.drawString(20, page_height - 210, "Finops(Revenue&Recon Analyst) - Freo")
+    pdf.drawString(40, page_height - 230, "Duration: Dec 2020 - Present")
+    pdf.drawString(40, page_height - 250, "Description:")
+    pdf.drawString(60, page_height - 270, "- MIS")
+    pdf.drawString(60, page_height - 290, "- Revenue automation")
+    pdf.drawString(60, page_height - 310, "- Partner onboarding")
+    pdf.drawString(60, page_height - 330, "- Made dashboards to check repayment")
+    pdf.drawString(60, page_height - 350, "- Day-to-day repayment recon")
+    pdf.drawString(60, page_height - 370, "- Solving payments disputes")
+    pdf.drawString(60, page_height - 390, "- Development and verification of monthly partner invoices")
+    pdf.drawString(60, page_height - 410, "- Handling Data required for partners and vendors")
+    pdf.drawString(60, page_height - 430, "- Data verification and analysis")
+    pdf.drawString(60, page_height - 450, "- Data correction")
 
-    pdf.drawString(100, 320, "Associate(Operations) - Freo")
-    pdf.drawString(120, 300, "Duration: Dec 2019 - Nov 2020")
-    pdf.drawString(120, 280, "Description:")
+    pdf.drawString(20, page_height - 490, "Associate(Operations) - Freo")
+    pdf.drawString(40, page_height - 510, "Duration: Dec 2019 - Nov 2020")
+    pdf.drawString(40, page_height - 530, "Description:")
     # Add relevant details about the role
 
     # Projects
-    pdf.drawString(100, 240, "Projects:")
-    pdf.drawString(120, 220, "Data Science Certification Lead - May 2020")
-    pdf.drawString(140, 200, "Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
+    pdf.drawString(20, page_height - 570, "Projects:")
+    pdf.drawString(40, page_height - 590, "Data Science Certification Lead - May 2020")
+    pdf.drawString(60, page_height - 610, "Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
 
     # Certifications
-    pdf.drawString(100, 160, "Certifications:")
-    pdf.drawString(120, 140, "Data Science Certification:")
-    pdf.drawString(140, 120, "Certified by IBM in association with Coursera")
-    pdf.drawString(140, 100, "Link: [IBM Data Science Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
+    pdf.drawString(20, page_height - 650, "Certifications:")
+    pdf.drawString(40, page_height - 670, "Data Science Certification:")
+    pdf.drawString(60, page_height - 690, "Certified by IBM in association with Coursera")
+    pdf.drawString(60, page_height - 710, "Link: [IBM Data Science Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
 
-    pdf.drawString(120, 80, "Additional Certifications:")
-    pdf.drawString(140, 60, "Python for Data Science and AI Development:")
-    pdf.drawString(140, 40, "Lead")
-    pdf.drawString(140, 20, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
+    pdf.drawString(40, page_height - 730, "Additional Certifications:")
+    pdf.drawString(60, page_height - 750, "Python for Data Science and AI Development:")
+    pdf.drawString(60, page_height - 770, "Lead")
+    pdf.drawString(60, page_height - 790, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
+
+    pdf.drawString(60, page_height - 810, "Databases and SQL with Python:")
+    pdf.drawString(60, page_height - 830, "Lead")
+    pdf.drawString(60, page_height - 850, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
+
+    pdf.drawString(60, page_height - 870, "Data Visualization with Python:")
+    pdf.drawString(60, page_height - 890, "Lead")
+    pdf.drawString(60, page_height - 910, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
 
     pdf.save()
 
