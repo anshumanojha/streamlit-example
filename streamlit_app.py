@@ -63,18 +63,26 @@ def generate_pdf():
     pdf.drawString(120, 215, "Data Science Certification Lead - May 2020")
     pdf.drawString(120, 200, "Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
 
-    # Data Science Certification
+    # Certifications
     pdf.setFont("Helvetica-Bold", 12)
-    pdf.drawString(100, 170, "Data Science Certification:")
+    pdf.drawString(100, 170, "Certifications:")
     pdf.setFont("Helvetica", 11)
-    pdf.drawString(120, 150, "Certified by IBM in association with Coursera")
-    pdf.drawString(120, 135, "Link: [IBM Data Science Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
+    pdf.drawString(120, 150, "Data Science Certification:")
+    pdf.drawString(140, 135, "Certified by IBM in association with Coursera")
+    pdf.drawString(140, 120, "Link: [IBM Data Science Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
 
-    # Education
-    pdf.setFont("Helvetica-Bold", 12)
-    pdf.drawString(100, 105, "Education:")
-    pdf.setFont("Helvetica", 11)
-    pdf.drawString(120, 85, "BE - MVJ, Aug 2019")
+    # Additional Certifications
+    pdf.drawString(120, 105, "Python for Data Science and AI Development")
+    pdf.drawString(140, 90, "Lead")
+    pdf.drawString(140, 75, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
+
+    pdf.drawString(120, 60, "Databases and SQL with Python")
+    pdf.drawString(140, 45, "Lead")
+    pdf.drawString(140, 30, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
+
+    pdf.drawString(120, 15, "Data Visualization with Python")
+    pdf.drawString(140, 0, "Lead")
+    pdf.drawString(140, -15, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
 
     # Save the PDF to the buffer
     pdf.save()
@@ -137,35 +145,29 @@ st.write("Duration: Dec 2019 - Nov 2020")
 st.write("Description:")
 # Add relevant details about the role
 
-# Skills
-st.header("Skills")
-st.write("- Python")
-st.write("- SQL")
-st.write("- Advanced Excel")
-st.write("- Power BI")
-st.write("- SuperSet")
-
-# Education
-st.header("Education")
-st.write("BE - MVJ, Aug 2019")
-
 # Projects
 st.header("Projects")
 st.subheader("Data Science Certification Lead - May 2020")
 st.write("Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
 
-# Data Science Certification
-st.header("Data Science Certification")
+# Certifications
+st.header("Certifications")
+st.write("Data Science Certification:")
 st.write("Certified by IBM in association with Coursera")
 st.write("Link: [IBM Data Science Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
 
-# Location Map
-st.header("Location Map - Bangalore")
-location_data = pd.DataFrame({
-    "latitude": [12.9716],  # Bangalore latitude
-    "longitude": [77.5946]  # Bangalore longitude
-})
-st.map(location_data)
+# Additional Certifications
+st.write("Python for Data Science and AI Development:")
+st.write("Lead")
+st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
+
+st.write("Databases and SQL with Python:")
+st.write("Lead")
+st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
+
+st.write("Data Visualization with Python:")
+st.write("Lead")
+st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
 
 # SQL Query Suggestor
 st.header('SQL Query Suggestor')
