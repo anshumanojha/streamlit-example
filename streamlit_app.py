@@ -97,8 +97,8 @@ st.set_page_config(
 st.title("Anshuman Ojha's Resume")
 
 # Generate PDF button at the top-right corner
-    with PdfPages(pdf_buffer) as pdf:
-        pdf.savefig(fig, bbox_inches='tight', pad_inches=0.1)
+ with PdfPages(pdf_buffer) as pdf:
+    pdf.savefig(fig, bbox_inches='tight', pad_inches=0.1)
 
     # Download the generated PDF
     st.success("PDF generated successfully. You can now view and download the PDF.")
