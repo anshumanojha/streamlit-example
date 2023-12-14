@@ -98,7 +98,7 @@ st.title("Anshuman Ojha's Resume")
 
 # Generate PDF button at the top-right corner
  st.success("PDF generated successfully. You can now view and download the PDF.")
-    st.download_button(
+        st.download_button(
         label="Download PDF",
         key="download-pdf-btn",
         file_data=pdf_buffer.getvalue(),
