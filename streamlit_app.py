@@ -1,6 +1,8 @@
 import streamlit as st
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
+from matplotlib.backends.backend_pdf import PdfPages
+import matplotlib.pyplot as plt
 from io import BytesIO
 
 # Function to generate PDF
@@ -97,12 +99,13 @@ st.set_page_config(
 st.title("Anshuman Ojha's Resume")
 
 # Generate PDF button at the top-right corner
- with PdfPages(pdf_buffer) as pdf:
+with PdfPages(pdf_buffer) as pdf:
     pdf.savefig(fig, bbox_inches='tight', pad_inches=0.1)
 
-    # Download the generated PDF
-    if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
+# Download the generated PDF
+if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
     generate_pdf()
+
 # Personal Information
 st.header("Personal Information")
 
@@ -162,5 +165,3 @@ st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomp
 st.write("Data Visualization with Python:")
 st.write("Lead")
 st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
-
-
