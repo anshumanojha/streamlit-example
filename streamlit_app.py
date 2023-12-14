@@ -97,9 +97,14 @@ st.set_page_config(
 st.title("Anshuman Ojha's Resume")
 
 # Generate PDF button at the top-right corner
-if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
-    generate_pdf()
-
+ st.success("PDF generated successfully. You can now view and download the PDF.")
+    st.download_button(
+        label="Download PDF",
+        key="download-pdf-btn",
+        file_data=pdf_buffer.getvalue(),
+        mime="application/pdf",
+        help="Download the generated PDF",
+    )
 # Personal Information
 st.header("Personal Information")
 
