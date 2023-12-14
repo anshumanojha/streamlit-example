@@ -34,7 +34,7 @@ def generate_pdf():
     # Work Experience
     pdf.drawString(20, page_height - 210, "Work Experience:")
     pdf.drawString(20, page_height - 230, "Finops(Revenue&Recon Analyst) - Freo")
-    pdf.drawString(40, page_height - 250, "Duration: Dec 2020 - Present")
+    pdf.drawString(40, page_height - 250, "Duration: Dec 2019 - Present")
     pdf.drawString(40, page_height - 270, "Description:")
     pdf.drawString(60, page_height - 290, "- MIS")
     pdf.drawString(60, page_height - 310, "- Revenue automation")
