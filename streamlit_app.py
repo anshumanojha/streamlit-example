@@ -1,6 +1,8 @@
 import streamlit as st
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
+from matplotlib.backends.backend_pdf import PdfPages
+import matplotlib.pyplot as plt
 from io import BytesIO
 
 # Function to generate PDF
@@ -97,74 +99,7 @@ st.set_page_config(
 st.title("Anshuman Ojha's Resume")
 
 # Generate PDF button at the top-right corner
- with PdfPages(pdf_buffer) as pdf:
-    pdf.savefig(fig, bbox_inches='tight', pad_inches=0.1)
-
-    # Download the generated PDF
-    st.success("PDF generated successfully. You can now view and download the PDF.")
-    st.download_button(
-        label="Download PDF",
-        key="download-pdf-btn",
-        file_data=pdf_buffer.getvalue(),
-        mime="application/pdf",
-        help="Download the generated PDF",
-    )
-# Personal Information
-st.header("Personal Information")
-
-# Location Input
-location = st.write("Location:", "Bangalore")
-
-# Display other personal information
-st.write("Name: Anshuman")
-st.write("Designation: Finops Analyst")
-st.write("Contact: 877743144")
-st.write("Email: anshumanojha94@gmail.com")
-
-# Work Experience
-st.header("Work Experience")
-
-# Finops(Revenue&Recon Analyst) - Freo
-st.subheader("Finops(Revenue&Recon Analyst) - Freo")
-st.write("Duration: Dec 2019 - Present")
-st.write("Description:")
-st.write("- MIS")
-st.write("- Revenue automation")
-st.write("- Partner onboarding")
-st.write("- Made dashboards to check repayment")
-st.write("- Day-to-day repayment recon")
-st.write("- Solving payments disputes")
-st.write("- Development and verification of monthly partner invoices")
-st.write("- Handling Data required for partners and vendors")
-st.write("- Data verification and analysis")
-st.write("- Data correction")
-
-# Associate(operations) - Freo
-st.subheader("Associate(Operations) - Freo")
-st.write("Duration: Dec 2019 - Nov 2020")
-st.write("Description:")
-# Add relevant details about the role
-
-# Projects
-st.header("Projects")
-st.subheader("Data Science Certification Lead - May 2020")
-st.write("Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
-
-# Certifications
-st.header("Certifications")
-st.write("Data Science Certification:")
-st.write("Certified by IBM in association with Coursera")
-st.write("Link: [IBM Data Science Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
-
-# Additional Certifications
-st.write("Python for Data Science and AI Development:")
-st.write("Lead")
-st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
-
-st.write("Databases and SQL with Python:")
-st.write("Lead")
-st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
-
-st.write("Data Visualization with Python:")
-st.write("Lead")
-st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
+if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
+    # Add instructions below the button
+    st.text("Click the 'Generate PDF' button to generate and download the resume PDF.")
+    generate_pdf()
