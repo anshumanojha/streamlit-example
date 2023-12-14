@@ -101,14 +101,8 @@ st.title("Anshuman Ojha's Resume")
     pdf.savefig(fig, bbox_inches='tight', pad_inches=0.1)
 
     # Download the generated PDF
-    st.success("PDF generated successfully. You can now view and download the PDF.")
-    st.download_button(
-        label="Download PDF",
-        key="download-pdf-btn",
-        file_data=pdf_buffer.getvalue(),
-        mime="application/pdf",
-        help="Download the generated PDF",
-    )
+    if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
+    generate_pdf()
 # Personal Information
 st.header("Personal Information")
 
