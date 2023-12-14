@@ -117,7 +117,7 @@ st.header("Work Experience")
 
 # Finops(Revenue&Recon Analyst) - Freo
 st.subheader("Finops(Revenue&Recon Analyst) - Freo")
-st.write("Duration: Dec 2020 - Present")
+st.write("Duration: Dec 2019 - Present")
 st.write("Description:")
 st.write("- MIS")
 st.write("- Revenue automation")
