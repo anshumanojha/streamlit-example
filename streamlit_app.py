@@ -3,6 +3,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from io import BytesIO
 
+
 # Function to generate PDF
 def generate_pdf():
     buffer = BytesIO()
