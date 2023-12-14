@@ -1,8 +1,6 @@
 import streamlit as st
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
-from matplotlib.backends.backend_pdf import PdfPages
-import matplotlib.pyplot as plt
 from io import BytesIO
 
 # Function to generate PDF
