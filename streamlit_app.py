@@ -1,10 +1,9 @@
 import streamlit as st
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
-from matplotlib.backends.backend_pdf import PdfPages  # Import PdfPages from matplotlib
+from matplotlib.backends.backend_pdf import PdfPages
 import matplotlib.pyplot as plt
 from io import BytesIO
-
 
 # Function to generate PDF
 def generate_pdf():
@@ -26,58 +25,7 @@ def generate_pdf():
     pdf.drawString(20, page_height - 40, "Anshuman Ojha's Resume")
     pdf.line(0, page_height - 45, page_width, page_height - 45)  # Top border for header
 
-    # Personal Information
-    pdf.drawString(20, page_height - 70, "Personal Information:")
-    pdf.drawString(20, page_height - 90, "Location: Bangalore")
-    pdf.drawString(20, page_height - 110, "Name: Anshuman")
-    pdf.drawString(20, page_height - 130, "Designation: Finops Analyst")
-    pdf.drawString(20, page_height - 150, "Contact: 877743144")
-    pdf.drawString(20, page_height - 170, "Email: anshumanojha94@gmail.com")
-
-    # Work Experience
-    pdf.drawString(20, page_height - 210, "Work Experience:")
-    pdf.drawString(20, page_height - 230, "Finops(Revenue&Recon Analyst) - Freo")
-    pdf.drawString(40, page_height - 250, "Duration: Dec 2019 - Present")
-    pdf.drawString(40, page_height - 270, "Description:")
-    pdf.drawString(60, page_height - 290, "- MIS")
-    pdf.drawString(60, page_height - 310, "- Revenue automation")
-    pdf.drawString(60, page_height - 330, "- Partner onboarding")
-    pdf.drawString(60, page_height - 350, "- Made dashboards to check repayment")
-    pdf.drawString(60, page_height - 370, "- Day-to-day repayment recon")
-    pdf.drawString(60, page_height - 390, "- Solving payments disputes")
-    pdf.drawString(60, page_height - 410, "- Development and verification of monthly partner invoices")
-    pdf.drawString(60, page_height - 430, "- Handling Data required for partners and vendors")
-    pdf.drawString(60, page_height - 450, "- Data verification and analysis")
-    pdf.drawString(60, page_height - 470, "- Data correction")
-
-    pdf.drawString(20, page_height - 510, "Associate(Operations) - Freo")
-    pdf.drawString(40, page_height - 530, "Duration: Dec 2019 - Nov 2020")
-    pdf.drawString(40, page_height - 550, "Description:")
-    # Add relevant details about the role
-
-    # Projects
-    pdf.drawString(20, page_height - 590, "Projects:")
-    pdf.drawString(40, page_height - 610, "Data Science Certification Lead - May 2020")
-    pdf.drawString(60, page_height - 630, "Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
-
-    # Certifications
-    pdf.drawString(20, page_height - 670, "Certifications:")
-    pdf.drawString(40, page_height - 690, "Data Science Certification:")
-    pdf.drawString(60, page_height - 710, "Certified by IBM in association with Coursera")
-    pdf.drawString(60, page_height - 730, "Link: [IBM Data Science Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
-
-    pdf.drawString(40, page_height - 750, "Additional Certifications:")
-    pdf.drawString(60, page_height - 770, "Python for Data Science and AI Development:")
-    pdf.drawString(60, page_height - 790, "Lead")
-    pdf.drawString(60, page_height - 810, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
-
-    pdf.drawString(60, page_height - 830, "Databases and SQL with Python:")
-    pdf.drawString(60, page_height - 850, "Lead")
-    pdf.drawString(60, page_height - 870, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
-
-    pdf.drawString(60, page_height - 890, "Data Visualization with Python:")
-    pdf.drawString(60, page_height - 910, "Lead")
-    pdf.drawString(60, page_height - 930, "Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
+    # ... (rest of the content)
 
     pdf.save()
 
@@ -98,14 +46,6 @@ st.set_page_config(
 
 # Anshuman's Resume
 st.title("Anshuman Ojha's Resume")
-
-# Generate PDF button at the top-right corner
-with PdfPages(pdf_buffer) as pdf:
-    pdf.savefig(fig, bbox_inches='tight', pad_inches=0.1)
-
-# Download the generated PDF
-if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
-    generate_pdf()
 
 # Personal Information
 st.header("Personal Information")
@@ -166,3 +106,7 @@ st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomp
 st.write("Data Visualization with Python:")
 st.write("Lead")
 st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
+
+# Generate PDF button at the top-right corner
+if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
+    generate_pdf()
