@@ -115,7 +115,7 @@ def generate_pdf():
 
     img = qr.make_image(fill='black', back_color='white')
     img.save(buffer, 'PNG')
-    pdf.drawInlineImage(buffer, 20, current_height)  # Adjust the position as needed
+    pdf.drawInlineImage(buffer, 20, current_height + 30)  # Adjust the position as needed
 
     pdf.save()
 
