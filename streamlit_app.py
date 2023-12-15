@@ -2,6 +2,7 @@ import streamlit as st
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from io import BytesIO
+import qrcode
 
 def generate_pdf():
     buffer = BytesIO()
@@ -32,7 +33,6 @@ def generate_pdf():
 
     # Summary
     pdf.drawString(20, page_height - 160, "Summary:")
-   
     summary_text = [
         "Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.",
         "Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.",
@@ -58,7 +58,7 @@ def generate_pdf():
         "- Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.",
         "",
         "Metrics and KPIs:",
-        "- Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives",
+        "- Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives.",
     ]
 
     line_height = 10
@@ -68,8 +68,6 @@ def generate_pdf():
         current_height -= line_height
 
     # Certifications
-   
-   
     pdf.drawString(20, current_height, "Certifications:")
     current_height -= line_height
 
@@ -105,6 +103,19 @@ def generate_pdf():
     for line in certifications_text:
         pdf.drawString(20, current_height, line)
         current_height -= line_height
+
+    # QR Code
+    qr = qrcode.QRCode(
+        version=1,
+        box_size=10,
+        border=5,
+    )
+    qr.add_data("https://anshumanojha-streamlit-porfolio-streamlit-app-jqouin.streamlit.app/")
+    qr.make(fit=True)
+
+    img = qr.make_image(fill='black', back_color='white')
+    img.save(buffer, 'PNG')
+    pdf.drawInlineImage(buffer, 20, current_height)  # Adjust the position as needed
 
     pdf.save()
 
