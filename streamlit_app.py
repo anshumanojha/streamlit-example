@@ -52,7 +52,7 @@ def generate_pdf():
 
     img = qr.make_image(fill='black', back_color='white')
     img.save(buffer, format='PNG')  # Specify the format when saving the image
-    pdf.drawInlineImage(buffer, 20, page_height - 600)  # Adjust the position as needed
+    pdf.drawInlineImage(buffer, 20, page_height - 600, width=100, height=100)  # Adjust the position and size as needed
 
     pdf.save()
 
