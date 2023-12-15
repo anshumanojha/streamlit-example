@@ -60,6 +60,35 @@ def generate_pdf():
     - Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.
     ''')
 
+    # Certifications
+    pdf.drawString(20, page_height - 610, "Certifications:")
+    pdf.drawString(20, page_height - 625, "- Data Science Certification")
+    pdf.drawString(20, page_height - 640, "   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
+    pdf.drawString(20, page_height - 655, "   - Lead")
+
+    pdf.drawString(20, page_height - 680, "- Python for Data Science and AI Development")
+    pdf.drawString(20, page_height - 695, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
+    pdf.drawString(20, page_height - 710, "   - Lead")
+
+    pdf.drawString(20, page_height - 735, "- Databases and SQL with Python")
+    pdf.drawString(20, page_height - 750, "   - Lead")
+
+    pdf.drawString(20, page_height - 775, "- Data Visualization with Python")
+    pdf.drawString(20, page_height - 790, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
+    pdf.drawString(20, page_height - 805, "   - Lead")
+
+    pdf.drawString(20, page_height - 830, "- Data Analysis with Python")
+    pdf.drawString(20, page_height - 845, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
+    pdf.drawString(20, page_height - 860, "   - Lead")
+
+    pdf.drawString(20, page_height - 885, "- Applied Data Science Capstone")
+    pdf.drawString(20, page_height - 900, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)")
+    pdf.drawString(20, page_height - 915, "   - Lead")
+
+    pdf.drawString(20, page_height - 940, "- IBM Data Science")
+    pdf.drawString(20, page_height - 955, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
+    pdf.drawString(20, page_height - 970, "   - Lead")
+
     pdf.save()
 
     # Set up download button
@@ -123,3 +152,33 @@ st.write('''
     Metrics and KPIs:
     - Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.
 ''')
+
+# Certifications
+st.header("Certifications")
+
+st.write("- Data Science Certification")
+st.write("   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
+st.write("   - Lead")
+
+st.write("- Python for Data Science and AI Development")
+st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
+st.write("   - Lead")
+
+st.write("- Databases and SQL with Python")
+st.write("   - Lead")
+
+st.write("- Data Visualization with Python")
+st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
+st.write("   - Lead")
+
+st.write("- Data Analysis with Python")
+st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
+st.write("   - Lead")
+
+st.write("- Applied Data Science Capstone")
+st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)")
+st.write("   - Lead")
+
+st.write("- IBM Data Science")
+st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
+st.write("   - Lead")
