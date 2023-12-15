@@ -132,7 +132,7 @@ pdf.drawInlineImage(temp_qr_file.name, qr_position_x, qr_position_y, width=100, 
 # Remove the temporary file
 temp_qr_file.close()
 
-    pdf.save()
+pdf.save()
 
     # Set up download button
     st.download_button(
