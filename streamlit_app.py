@@ -47,6 +47,13 @@ st.set_page_config(
 # Anshuman's Resume
 st.title("Anshuman Ojha's Resume")
 
+# Text beneath the heading
+st.write("Click the button to generate PDF Resume")
+
+# Generate PDF button at the top-right corner
+if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
+    generate_pdf()
+
 # Personal Information
 st.header("Personal Information")
 
@@ -106,7 +113,3 @@ st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomp
 st.write("Data Visualization with Python:")
 st.write("Lead")
 st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
-
-# Generate PDF button at the top-right corner
-if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
-    generate_pdf()
