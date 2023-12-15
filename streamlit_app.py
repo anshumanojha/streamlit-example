@@ -3,7 +3,6 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from io import BytesIO
 import qrcode
-from PIL import Image
 
 def generate_pdf():
     buffer = BytesIO()
@@ -34,93 +33,65 @@ def generate_pdf():
 
     # Summary
     pdf.drawString(20, page_height - 160, "Summary:")
-    
-    summary_text = [
-        "Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.",
-        "Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.",
-        "",
-        "Operational Efficiency:",
-        "- Automated routine operational tasks, streamlining processes and reducing manual effort, resulting in increased productivity.",
-        "- Developed frameworks for data analysis on repayment and disbursal, contributing to the creation of efficient operational strategies for the upcoming months.",
-        "",
-        "Collaboration and Communication:",
-        "- Facilitated the onboarding process for new partners, ensuring seamless integration into existing operations and fostering strong collaborative relationships.",
-        "- Conducted presentations on EMI details to customers, enhancing their understanding and contributing to successful loan repayment outcomes.",
-        "",
-        "Problem Solving:",
-        "- Identified and resolved operational bottlenecks by applying analytical skills, leading to improved overall workflow and reduced turnaround times.",
-        "- Assisted in the development of frameworks for analyzing data on repayment and disbursal, contributing to more informed decision-making processes.",
-        "",
-        "Project Management:",
-        "- Led initiatives to enhance operational efficiency, collaborating with cross-functional teams to implement process improvements and achieve organizational objectives.",
-        "- Played a key role in ensuring the success of operational projects through effective planning, execution, and monitoring.",
-        "",
-        "Technical Proficiency:",
-        "- Demonstrated high proficiency in SQL, Python, and Excel for data manipulation, analysis, and reporting purposes.",
-        "- Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.",
-        "",
-        "Metrics and KPIs:",
-        "- Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.",
-    ]
+    summary_text = '''
+    - Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.
+    - Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.
 
-    line_height = 10
-    current_height = page_height - 175
-    for line in summary_text:
-        pdf.drawString(20, current_height, line)
-        current_height -= line_height
+    Operational Efficiency:
+    - Automated routine operational tasks, streamlining processes and reducing manual effort, resulting in increased productivity.
+    - Developed frameworks for data analysis on repayment and disbursal, contributing to the creation of efficient operational strategies for the upcoming months.
+
+    Collaboration and Communication:
+    - Facilitated the onboarding process for new partners, ensuring seamless integration into existing operations and fostering strong collaborative relationships.
+    - Conducted presentations on EMI details to customers, enhancing their understanding and contributing to successful loan repayment outcomes.
+
+    Problem Solving:
+    - Identified and resolved operational bottlenecks by applying analytical skills, leading to improved overall workflow and reduced turnaround times.
+    - Assisted in the development of frameworks for analyzing data on repayment and disbursal, contributing to more informed decision-making processes.
+
+    Project Management:
+    - Led initiatives to enhance operational efficiency, collaborating with cross-functional teams to implement process improvements and achieve organizational objectives.
+    - Played a key role in ensuring the success of operational projects through effective planning, execution, and monitoring.
+
+    Technical Proficiency:
+    - Demonstrated high proficiency in SQL, Python, and Excel for data manipulation, analysis, and reporting purposes.
+    - Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.
+
+    Metrics and KPIs:
+    - Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.
+    '''
+    summary_lines = summary_text.split('\n')
+    for i, line in enumerate(summary_lines):
+        pdf.drawString(20, page_height - 175 - (i * 15), line.strip())
 
     # Certifications
-    pdf.drawString(20, current_height, "Certifications:")
-    current_height -= line_height
-
-    certifications_text = [
-        "- Data Science Certification",
-        "   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)",
-        "   - Lead",
-        "",
-        "- Python for Data Science and AI Development",
-        "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)",
-        "   - Lead",
-        "",
-        "- Databases and SQL with Python",
-        "   - Lead",
-        "",
-        "- Data Visualization with Python",
-        "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)",
-        "   - Lead",
-        "",
-        "- Data Analysis with Python",
-        "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)",
-        "   - Lead",
-        "",
-        "- Applied Data Science Capstone",
-        "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)",
-        "   - Lead",
-        "",
-        "- IBM Data Science",
-        "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)",
-        "   - Lead",
+    pdf.drawString(20, page_height - 480, "Certifications:")
+    certifications = [
+        ("- Data Science Certification", "[GitHub - Anshuman Ojha](https://github.com/anshumanojha)", "Lead"),
+        ("- Python for Data Science and AI Development", "[Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)", "Lead"),
+        ("- Databases and SQL with Python", "Lead"),
+        ("- Data Visualization with Python", "[Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)", "Lead"),
+        ("- Data Analysis with Python", "[Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)", "Lead"),
+        ("- Applied Data Science Capstone", "[Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)", "Lead"),
+        ("- IBM Data Science", "[Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)", "Lead"),
     ]
+    for i, (cert, link, lead) in enumerate(certifications):
+        pdf.drawString(20, page_height - 495 - (i * 25), cert)
+        pdf.drawString(20, page_height - 510 - (i * 25), f"   - Link: {link}")
+        pdf.drawString(20, page_height - 525 - (i * 25), f"   - {lead}")
 
-    for line in certifications_text:
-        pdf.drawString(20, current_height, line)
-        current_height -= line_height
-
-    # Add QR Code
+    # QR Code
     qr = qrcode.QRCode(
         version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
         box_size=10,
-        border=4,
+        border=5,
     )
     qr.add_data("https://anshumanojha-streamlit-porfolio-streamlit-app-jqouin.streamlit.app/")
     qr.make(fit=True)
 
-    img = qr.make_image(fill_color="black", back_color="white")
-    img_path = "qr_code.png"
-    img.save(img_path)
-
-    pdf.drawInlineImage(img_path, 20, current_height - 30, width=50, height=50)
+    img = qr.make_image(fill='black', back_color='white')
+    img.save(buffer, 'PNG')
+    st.image(img, caption='QR Code')
 
     pdf.save()
 
@@ -160,15 +131,12 @@ st.write("Email: anshumanojha94@gmail.com")
 
 # Summary
 st.header("Summary")
-# Display summary
-for line in summary_text:
-    st.write(line)
+st.write(summary_text)
 
 # Certifications
 st.header("Certifications")
-# Display certifications
-for line in certifications_text:
-    st.write(line)
 
-# QR Code
-st.image(img_path, caption="Scan the QR Code to visit my portfolio website")
+for cert, link, lead in certifications:
+    st.write(cert)
+    st.write(f"   - Link: {link}")
+    st.write(f"   - {lead}")
