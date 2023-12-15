@@ -81,17 +81,8 @@ def generate_pdf():
         pdf.drawString(20, page_height - 525 - (i * 25), f"   - {lead}")
 
     # QR Code
-    qr = qrcode.QRCode(
-        version=1,
-        box_size=10,
-        border=5,
-    )
-    qr.add_data("https://anshumanojha-streamlit-porfolio-streamlit-app-jqouin.streamlit.app/")
-    qr.make(fit=True)
-
-    img = qr.make_image(fill='black', back_color='white')
-    img.save(buffer, 'PNG')
-    pdf.drawInlineImage(buffer, 20, page_height - 600)  # Adjust the position as needed
+    qr_data = "https://anshumanojha-streamlit-porfolio-streamlit-app-jqouin.streamlit.app/"
+    pdf.drawInlineImage(qrcode.make(qr_data).make_image(fill='black', back_color='white'), 20, page_height - 600)  # Adjust the position as needed
 
     pdf.save()
 
