@@ -4,3 +4,4 @@ streamlit
 pyowm==3.1.0
 reportlab==3.5.67
 matplotlib
+qrcode[pil]==7.3
