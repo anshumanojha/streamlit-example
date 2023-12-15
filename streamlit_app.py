@@ -68,6 +68,8 @@ def generate_pdf():
         current_height -= line_height
 
     # Certifications
+   
+    
     pdf.drawString(20, current_height, "Certifications:")
     current_height -= line_height
 
