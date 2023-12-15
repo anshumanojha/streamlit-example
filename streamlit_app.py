@@ -118,10 +118,13 @@ def generate_pdf():
     img = qr.make_image(fill='black', back_color='white').convert("RGB")
 
     # Save the image to buffer
-    img.save(buffer, 'PNG')
+    img_path = "/tmp/qrcode.png"
+    img.save(img_path)
 
     # Insert QR code into the PDF
-    pdf.drawInlineImage(buffer, 20, current_height + 30, width=60, height=60)  # Adjust the position and size as needed
+    pdf.drawInlineImage(buffer, 20, current_height + 30, width=60, height=60)  
+    img_path.close()
+    # Adjust the position and size as needed
 
     pdf.save()
 
