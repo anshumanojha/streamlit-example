@@ -3,6 +3,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from io import BytesIO
 import qrcode
+import tempfile
 
 def generate_pdf():
     buffer = BytesIO()
@@ -33,7 +34,7 @@ def generate_pdf():
 
     # Summary
     pdf.drawString(20, page_height - 160, "Summary:")
-
+   
     summary_text = [
         "Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.",
         "Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.",
@@ -59,7 +60,7 @@ def generate_pdf():
         "- Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.",
         "",
         "Metrics and KPIs:",
-        "- Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives.",
+        "- Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives",
     ]
 
     line_height = 10
@@ -69,7 +70,6 @@ def generate_pdf():
         current_height -= line_height
 
     # Certifications
-
     pdf.drawString(20, current_height, "Certifications:")
     current_height -= line_height
 
@@ -115,14 +115,19 @@ def generate_pdf():
     qr.add_data("https://anshumanojha-streamlit-porfolio-streamlit-app-jqouin.streamlit.app/")
     qr.make(fit=True)
 
-    img = qr.make_image(fill='black', back_color='white')
+    # Save the QR code to a temporary file
+    temp_qr_file = tempfile.NamedTemporaryFile(delete=False, suffix=".png")
+    qr.make_image(fill='black', back_color='white').save(temp_qr_file.name)
 
     # Adjust the position to the top right corner
-    qr_position_x = page_width - img.width - 20
-    qr_position_y = page_height - img.height - 20
+    qr_position_x = page_width - temp_qr_file.width - 20
+    qr_position_y = page_height - temp_qr_file.height - 20
 
-    img.save(buffer, 'PNG')
-    pdf.drawInlineImage(buffer, qr_position_x, qr_position_y)  # Adjust the position as needed
+    # Draw the QR code onto the PDF
+    pdf.drawInlineImage(temp_qr_file.name, qr_position_x, qr_position_y, width=100, height=100)
+
+    # Remove the temporary file
+    temp_qr_file.close()
 
     pdf.save()
 
