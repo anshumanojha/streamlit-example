@@ -131,7 +131,8 @@ st.write("Email: anshumanojha94@gmail.com")
 
 # Summary
 st.header("Summary")
-st.write(summary_text)
+for line in summary_lines:
+    st.write(line)
 
 # Certifications
 st.header("Certifications")
