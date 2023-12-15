@@ -60,9 +60,9 @@ def generate_pdf():
     Metrics and KPIs:
     - Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.
     '''
-    summary_lines = summary_text.split('\n')
+    summary_lines = [line.strip() for line in summary_text.split('\n') if line.strip()]
     for i, line in enumerate(summary_lines):
-        pdf.drawString(20, page_height - 175 - (i * 15), line.strip())
+        pdf.drawString(20, page_height - 175 - (i * 15), line)
 
     # Certifications
     pdf.drawString(20, page_height - 480, "Certifications:")
