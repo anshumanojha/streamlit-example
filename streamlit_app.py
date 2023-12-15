@@ -1,68 +1,125 @@
 import streamlit as st
-import matplotlib.pyplot as plt
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
 from io import BytesIO
 
-# Text Variables
-Header = '>>>This resume was generated entirely in Python. For the full source code, view my portfolio.'
-Name = 'Anshuman Ojha'
-Designation = 'Finops Analyst'
-Contact = 'Location: Bangalore\nContact: 877743144\nEmail: anshumanojha94@gmail.com'
-WorkExperienceHeader = 'Work Experience'
-FinopsTitle = 'Finops(Revenue&Recon Analyst) - Freo'
-FinopsDuration = 'Duration: Dec 2019 - Present'
-FinopsDesc = '- MIS\n- Revenue automation\n- Partner onboarding\n- Made dashboards to check repayment\n- Day-to-day repayment recon\n- Solving payments disputes\n- Development and verification of monthly partner invoices\n- Handling Data required for partners and vendors\n- Data verification and analysis\n- Data correction'
-AssociateTitle = 'Associate(Operations) - Freo'
-AssociateDuration = 'Duration: Dec 2019 - Nov 2020'
-AssociateDesc = 'Add relevant details about the role'
-ProjectsHeader = 'Projects'
-DataScienceProject = 'Data Science Certification Lead - May 2020\nLink: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)'
-CertificationsHeader = 'Certifications'
-DataScienceCertification = 'Data Science Certification\nCertified by IBM in association with Coursera\nLink: [IBM Data Science Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)'
-PythonCertification = 'Python for Data Science and AI Development\nLead\nLink: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)'
-SQLCertification = 'Databases and SQL with Python\nLead\nLink: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)'
-DataVizCertification = 'Data Visualization with Python\nLead\nLink: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)'
+def generate_pdf():
+    buffer = BytesIO()
 
-# Set up the Streamlit app
+    # Create a PDF object
+    pdf = canvas.Canvas(buffer, pagesize=letter)
+    pdf.setFont("Helvetica", 8)  # Change the font and size as needed
+
+    # Add borders to the PDF
+    page_width, page_height = letter
+    pdf.line(0, page_height, page_width, page_height)  # Top border
+    pdf.line(0, page_height, 0, 0)                     # Left border
+    pdf.line(0, 0, page_width, 0)                      # Bottom border
+    pdf.line(page_width, 0, page_width, page_height)   # Right border
+
+    # Set up the PDF content with left alignment
+    pdf.drawString(20, page_height - 20, ">>>This resume was generated entirely in Python. For the full source code, view my portfolio.")
+    pdf.drawString(20, page_height - 40, "Anshuman Ojha's Resume")
+    pdf.line(0, page_height - 45, page_width, page_height - 45)  # Top border for header
+
+    # Personal Information
+    pdf.drawString(20, page_height - 60, "Personal Information:")
+    pdf.drawString(20, page_height - 75, "- Location: Bangalore")
+    pdf.drawString(20, page_height - 90, "- Name: Anshuman Ojha")
+    pdf.drawString(20, page_height - 105, "- Designation: Finops Analyst")
+    pdf.drawString(20, page_height - 120, "- Contact: 877743144")
+    pdf.drawString(20, page_height - 135, "- Email: anshumanojha94@gmail.com")
+
+    # Summary
+    pdf.drawString(20, page_height - 160, "Summary:")
+    pdf.drawString(20, page_height - 175, '''
+    Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.
+    Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.
+
+    Operational Efficiency:
+    - Automated routine operational tasks, streamlining processes and reducing manual effort, resulting in increased productivity.
+    - Developed frameworks for data analysis on repayment and disbursal, contributing to the creation of efficient operational strategies for the upcoming months.
+
+    Collaboration and Communication:
+    - Facilitated the onboarding process for new partners, ensuring seamless integration into existing operations and fostering strong collaborative relationships.
+    - Conducted presentations on EMI details to customers, enhancing their understanding and contributing to successful loan repayment outcomes.
+
+    Problem Solving:
+    - Identified and resolved operational bottlenecks by applying analytical skills, leading to improved overall workflow and reduced turnaround times.
+    - Assisted in the development of frameworks for analyzing data on repayment and disbursal, contributing to more informed decision-making processes.
+
+    Project Management:
+    - Led initiatives to enhance operational efficiency, collaborating with cross-functional teams to implement process improvements and achieve organizational objectives.
+    - Played a key role in ensuring the success of operational projects through effective planning, execution, and monitoring.
+
+    Technical Proficiency:
+    - Demonstrated high proficiency in SQL, Python, and Excel for data manipulation, analysis, and reporting purposes.
+    - Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.
+
+    Metrics and KPIs:
+    - Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.
+    ''')
+
+    pdf.save()
+
+    # Set up download button
+    st.download_button(
+        "Download PDF",
+        buffer.getvalue(),
+        file_name="Anshuman_Ojha_Resume.pdf",
+        key="pdf-download",
+    )
+
+# Set page layout
 st.set_page_config(
     page_title="Anshuman Ojha's Resume",
     page_icon=":clipboard:",
     layout="wide",
 )
 
-# Heading
+# Anshuman's Resume
 st.title("Anshuman Ojha's Resume")
 
 # Text beneath the heading
 st.write("Click the button to get the resume in PDF")
 
+# Generate PDF button at the top-right corner
+if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
+    generate_pdf()
+
 # Personal Information
 st.header("Personal Information")
-st.write(f"Name: {Name}")
-st.write(f"Designation: {Designation}")
-st.write(Contact)
+st.write("Name: Anshuman Ojha")
+st.write("Designation: Finops Analyst")
+st.write("Contact: 877743144")
+st.write("Email: anshumanojha94@gmail.com")
 
-# Work Experience
-st.header(WorkExperienceHeader)
+# Summary
+st.header("Summary")
+st.write('''
+    Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.
+    Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.
 
-# Finops(Revenue&Recon Analyst) - Freo
-st.subheader(FinopsTitle)
-st.write(FinopsDuration)
-st.write("Description:")
-st.write(FinopsDesc)
+    Operational Efficiency:
+    - Automated routine operational tasks, streamlining processes and reducing manual effort, resulting in increased productivity.
+    - Developed frameworks for data analysis on repayment and disbursal, contributing to the creation of efficient operational strategies for the upcoming months.
 
-# Associate(Operations) - Freo
-st.subheader(AssociateTitle)
-st.write(AssociateDuration)
-st.write("Description:")
-st.write(AssociateDesc)
+    Collaboration and Communication:
+    - Facilitated the onboarding process for new partners, ensuring seamless integration into existing operations and fostering strong collaborative relationships.
+    - Conducted presentations on EMI details to customers, enhancing their understanding and contributing to successful loan repayment outcomes.
 
-# Projects
-st.header(ProjectsHeader)
-st.subheader(DataScienceProject)
+    Problem Solving:
+    - Identified and resolved operational bottlenecks by applying analytical skills, leading to improved overall workflow and reduced turnaround times.
+    - Assisted in the development of frameworks for analyzing data on repayment and disbursal, contributing to more informed decision-making processes.
 
-# Certifications
-st.header(CertificationsHeader)
-st.write(DataScienceCertification)
-st.write(PythonCertification)
-st.write(SQLCertification)
-st.write(DataVizCertification)
+    Project Management:
+    - Led initiatives to enhance operational efficiency, collaborating with cross-functional teams to implement process improvements and achieve organizational objectives.
+    - Played a key role in ensuring the success of operational projects through effective planning, execution, and monitoring.
+
+    Technical Proficiency:
+    - Demonstrated high proficiency in SQL, Python, and Excel for data manipulation, analysis, and reporting purposes.
+    - Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.
+
+    Metrics and KPIs:
+    - Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.
+''')
