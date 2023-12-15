@@ -58,7 +58,7 @@ def generate_pdf():
         "- Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.",
         "",
         "Metrics and KPIs:",
-        "- Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.",
+        "- Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives",
     ]
 
     line_height = 10
