@@ -32,42 +32,50 @@ def generate_pdf():
 
     # Summary
     pdf.drawString(20, page_height - 160, "Summary:")
-    summary_text = '''
-    Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.
-    Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.
+    
+    summary_text = [
+        "Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.",
+        "Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.",
+        "",
+        "Operational Efficiency:",
+        "- Automated routine operational tasks, streamlining processes and reducing manual effort, resulting in increased productivity.",
+        "- Developed frameworks for data analysis on repayment and disbursal, contributing to the creation of efficient operational strategies for the upcoming months.",
+        "",
+        "Collaboration and Communication:",
+        "- Facilitated the onboarding process for new partners, ensuring seamless integration into existing operations and fostering strong collaborative relationships.",
+        "- Conducted presentations on EMI details to customers, enhancing their understanding and contributing to successful loan repayment outcomes.",
+        "",
+        "Problem Solving:",
+        "- Identified and resolved operational bottlenecks by applying analytical skills, leading to improved overall workflow and reduced turnaround times.",
+        "- Assisted in the development of frameworks for analyzing data on repayment and disbursal, contributing to more informed decision-making processes.",
+        "",
+        "Project Management:",
+        "- Led initiatives to enhance operational efficiency, collaborating with cross-functional teams to implement process improvements and achieve organizational objectives.",
+        "- Played a key role in ensuring the success of operational projects through effective planning, execution, and monitoring.",
+        "",
+        "Technical Proficiency:",
+        "- Demonstrated high proficiency in SQL, Python, and Excel for data manipulation, analysis, and reporting purposes.",
+        "- Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.",
+        "",
+        "Metrics and KPIs:",
+        "- Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.",
+    ]
 
-    Operational Efficiency:
-    - Automated routine operational tasks, streamlining processes and reducing manual effort, resulting in increased productivity.
-    - Developed frameworks for data analysis on repayment and disbursal, contributing to the creation of efficient operational strategies for the upcoming months.
-
-    Collaboration and Communication:
-    - Facilitated the onboarding process for new partners, ensuring seamless integration into existing operations and fostering strong collaborative relationships.
-    - Conducted presentations on EMI details to customers, enhancing their understanding and contributing to successful loan repayment outcomes.
-
-    Problem Solving:
-    - Identified and resolved operational bottlenecks by applying analytical skills, leading to improved overall workflow and reduced turnaround times.
-    - Assisted in the development of frameworks for analyzing data on repayment and disbursal, contributing to more informed decision-making processes.
-
-    Project Management:
-    - Led initiatives to enhance operational efficiency, collaborating with cross-functional teams to implement process improvements and achieve organizational objectives.
-    - Played a key role in ensuring the success of operational projects through effective planning, execution, and monitoring.
-
-    Technical Proficiency:
-    - Demonstrated high proficiency in SQL, Python, and Excel for data manipulation, analysis, and reporting purposes.
-    - Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.
-
-    Metrics and KPIs:
-    - Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.
-    '''
-    pdf.setFont("Helvetica", 7)  # Reduce font size for the summary
-    pdf.drawString(20, page_height - 175, summary_text)
+    line_height = 10
+    current_height = page_height - 175
+    for line in summary_text:
+        pdf.drawString(20, current_height, line)
+        current_height -= line_height
 
     # Certifications
-    pdf.setFont("Helvetica", 8)  # Reset font size for certifications
     pdf.drawString(20, page_height - 480, "Certifications:")
     pdf.drawString(20, page_height - 495, "- Data Science Certification")
     pdf.drawString(20, page_height - 510, "   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
     pdf.drawString(20, page_height - 525, "   - Lead")
+
+    pdf.drawString(20, page_height - 550, "- Python for Data Science and AI Development")
+    pdf.drawString(20, page_height - 565, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
+    pdf.drawString(20, page_height - 580, "   - Lead")
 
     # Add other certifications as needed
 
@@ -141,9 +149,29 @@ st.write('''
 # Certifications
 st.header("Certifications")
 
-# Display certifications
 st.write("- Data Science Certification")
 st.write("   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
 st.write("   - Lead")
 
-# Add other certifications as needed
+st.write("- Python for Data Science and AI Development")
+st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
+st.write("   - Lead")
+
+st.write("- Databases and SQL with Python")
+st.write("   - Lead")
+
+st.write("- Data Visualization with Python")
+st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
+st.write("   - Lead")
+
+st.write("- Data Analysis with Python")
+st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
+st.write("   - Lead")
+
+st.write("- Applied Data Science Capstone")
+st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)")
+st.write("   - Lead")
+
+st.write("- IBM Data Science")
+st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
+st.write("   - Lead")
