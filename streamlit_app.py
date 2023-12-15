@@ -68,16 +68,41 @@ def generate_pdf():
         current_height -= line_height
 
     # Certifications
-    pdf.drawString(20, page_height - 480, "Certifications:")
-    pdf.drawString(20, page_height - 495, "- Data Science Certification")
-    pdf.drawString(20, page_height - 510, "   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
-    pdf.drawString(20, page_height - 525, "   - Lead")
+    pdf.drawString(20, current_height, "Certifications:")
+    current_height -= line_height
 
-    pdf.drawString(20, page_height - 550, "- Python for Data Science and AI Development")
-    pdf.drawString(20, page_height - 565, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
-    pdf.drawString(20, page_height - 580, "   - Lead")
+    certifications_text = [
+        "- Data Science Certification",
+        "   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)",
+        "   - Lead",
+        "",
+        "- Python for Data Science and AI Development",
+        "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)",
+        "   - Lead",
+        "",
+        "- Databases and SQL with Python",
+        "   - Lead",
+        "",
+        "- Data Visualization with Python",
+        "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)",
+        "   - Lead",
+        "",
+        "- Data Analysis with Python",
+        "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)",
+        "   - Lead",
+        "",
+        "- Applied Data Science Capstone",
+        "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)",
+        "   - Lead",
+        "",
+        "- IBM Data Science",
+        "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)",
+        "   - Lead",
+    ]
 
-    # Add other certifications as needed
+    for line in certifications_text:
+        pdf.drawString(20, current_height, line)
+        current_height -= line_height
 
     pdf.save()
 
@@ -149,6 +174,7 @@ st.write('''
 # Certifications
 st.header("Certifications")
 
+# Display certification details
 st.write("- Data Science Certification")
 st.write("   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
 st.write("   - Lead")
