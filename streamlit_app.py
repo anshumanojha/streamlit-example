@@ -119,12 +119,8 @@ def generate_pdf():
     temp_qr_file = tempfile.NamedTemporaryFile(delete=False, suffix=".png")
     qr.make_image(fill='black', back_color='white').save(temp_qr_file.name)
 
-    # Adjust the position to the top right corner
-    qr_position_x = page_width - temp_qr_file.width - 20
-    qr_position_y = page_height - temp_qr_file.height - 20
-
     # Draw the QR code onto the PDF
-    pdf.drawInlineImage(temp_qr_file.name, qr_position_x, qr_position_y, width=100, height=100)
+    pdf.drawInlineImage(temp_qr_file.name, 20, page_height - 600, width=100, height=100)
 
     # Remove the temporary file
     temp_qr_file.close()
