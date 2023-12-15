@@ -2,6 +2,8 @@ import streamlit as st
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from io import BytesIO
+import qrcode
+from PIL import Image
 
 def generate_pdf():
     buffer = BytesIO()
@@ -58,7 +60,7 @@ def generate_pdf():
         "- Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.",
         "",
         "Metrics and KPIs:",
-        "- Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives",
+        "- Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.",
     ]
 
     line_height = 10
@@ -68,8 +70,6 @@ def generate_pdf():
         current_height -= line_height
 
     # Certifications
-   
-    
     pdf.drawString(20, current_height, "Certifications:")
     current_height -= line_height
 
@@ -105,6 +105,22 @@ def generate_pdf():
     for line in certifications_text:
         pdf.drawString(20, current_height, line)
         current_height -= line_height
+
+    # Add QR Code
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data("https://anshumanojha-streamlit-porfolio-streamlit-app-jqouin.streamlit.app/")
+    qr.make(fit=True)
+
+    img = qr.make_image(fill_color="black", back_color="white")
+    img_path = "qr_code.png"
+    img.save(img_path)
+
+    pdf.drawInlineImage(img_path, 20, current_height - 30, width=50, height=50)
 
     pdf.save()
 
@@ -144,62 +160,15 @@ st.write("Email: anshumanojha94@gmail.com")
 
 # Summary
 st.header("Summary")
-# Display summary text
-st.write('''
-    Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.
-    Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.
-
-    Operational Efficiency:
-    - Automated routine operational tasks, streamlining processes and reducing manual effort, resulting in increased productivity.
-    - Developed frameworks for data analysis on repayment and disbursal, contributing to the creation of efficient operational strategies for the upcoming months.
-
-    Collaboration and Communication:
-    - Facilitated the onboarding process for new partners, ensuring seamless integration into existing operations and fostering strong collaborative relationships.
-    - Conducted presentations on EMI details to customers, enhancing their understanding and contributing to successful loan repayment outcomes.
-
-    Problem Solving:
-    - Identified and resolved operational bottlenecks by applying analytical skills, leading to improved overall workflow and reduced turnaround times.
-    - Assisted in the development of frameworks for analyzing data on repayment and disbursal, contributing to more informed decision-making processes.
-
-    Project Management:
-    - Led initiatives to enhance operational efficiency, collaborating with cross-functional teams to implement process improvements and achieve organizational objectives.
-    - Played a key role in ensuring the success of operational projects through effective planning, execution, and monitoring.
-
-    Technical Proficiency:
-    - Demonstrated high proficiency in SQL, Python, and Excel for data manipulation, analysis, and reporting purposes.
-    - Actively stayed abreast of industry trends and best practices to incorporate the latest technologies and methodologies into daily operations.
-
-    Metrics and KPIs:
-    - Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives.
-''')
+# Display summary
+for line in summary_text:
+    st.write(line)
 
 # Certifications
 st.header("Certifications")
+# Display certifications
+for line in certifications_text:
+    st.write(line)
 
-# Display certification details
-st.write("- Data Science Certification")
-st.write("   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
-st.write("   - Lead")
-
-st.write("- Python for Data Science and AI Development")
-st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
-st.write("   - Lead")
-
-st.write("- Databases and SQL with Python")
-st.write("   - Lead")
-
-st.write("- Data Visualization with Python")
-st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
-st.write("   - Lead")
-
-st.write("- Data Analysis with Python")
-st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
-st.write("   - Lead")
-
-st.write("- Applied Data Science Capstone")
-st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)")
-st.write("   - Lead")
-
-st.write("- IBM Data Science")
-st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
-st.write("   - Lead")
+# QR Code
+st.image(img_path, caption="Scan the QR Code to visit my portfolio website")
