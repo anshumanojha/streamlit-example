@@ -3,7 +3,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from io import BytesIO
 
-st.write("Click the button to generate PDF Resume")
+
 def generate_pdf():
     buffer = BytesIO()
 
@@ -93,12 +93,12 @@ st.set_page_config(
 # Anshuman's Resume
 st.title("Anshuman Ojha's Resume")
 
+# Text beneath the heading
+st.write("Click the button to get the resume in PDF")
+
 # Generate PDF button at the top-right corner
 if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
     generate_pdf()
-
-# Text beneath the heading
-st.write("Bangalore")
 
 # Personal Information
 st.header("Personal Information")
