@@ -14,4 +14,4 @@ img = qr.make_image(fill='black', back_color='white').convert("RGB")
 img.save(buffer, 'PNG')
 
 # Insert QR code into the PDF
-pdf.drawInlineImage(buffer, 20, current_height + 30)  # Adjust the position as needed
+pdf.drawInlineImage(buffer, 20, current_height + 30, width=60, height=60)  # Adjust the position and size as needed
