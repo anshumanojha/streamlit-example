@@ -25,7 +25,7 @@ def generate_pdf():
 
     # Personal Information
     pdf.drawString(20, page_height - 60, "Personal Information:")
-    pdf.drawString(20, page_height - 75, f"- Location: {location}")
+    pdf.drawString(20, page_height - 75, "- Location: Bangalore")
     pdf.drawString(20, page_height - 90, "- Name: Anshuman Ojha")
     pdf.drawString(20, page_height - 105, "- Designation: Finops Analyst")
     pdf.drawString(20, page_height - 120, "- Contact: 877743144")
@@ -93,14 +93,15 @@ st.set_page_config(
 # Anshuman's Resume
 st.title("Anshuman Ojha's Resume")
 
+# Generate PDF button at the top-right corner
+if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
+    generate_pdf()
+
 # Text beneath the heading
-st.write("Click the button to generate PDF Resume")
+st.write("Bangalore")
 
 # Personal Information
 st.header("Personal Information")
-
-# Location Input
-location = st.selectbox("Location", ["Bangalore", "Other"])
 
 # Display other personal information
 st.write("Name: Anshuman Ojha")
@@ -155,7 +156,3 @@ st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomp
 st.write("Data Visualization with Python:")
 st.write("Lead")
 st.write("Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
-
-# Generate PDF button at the top-right corner
-if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download PDF"):
-    generate_pdf()
