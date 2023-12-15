@@ -108,31 +108,31 @@ def generate_pdf():
 
     # QR Code
     qr = qrcode.QRCode(
-    version=1,
-    box_size=10,
-    border=5,
-)
+        version=1,
+        box_size=10,
+        border=5,
+    )
 
-# URL to be encoded in the QR code
-url = "https://anshumanojha-streamlit-porfolio-streamlit-app-jqouin.streamlit.app/"
-qr.add_data(url)
-qr.make(fit=True)
+    # URL to be encoded in the QR code
+    url = "https://anshumanojha-streamlit-porfolio-streamlit-app-jqouin.streamlit.app/"
+    qr.add_data(url)
+    qr.make(fit=True)
 
-# Save the QR code to a temporary file
-temp_qr_file = tempfile.NamedTemporaryFile(delete=False, suffix=".png")
-qr.make_image(fill='black', back_color='white').save(temp_qr_file.name)
+    # Save the QR code to a temporary file
+    temp_qr_file = tempfile.NamedTemporaryFile(delete=False, suffix=".png")
+    qr.make_image(fill='black', back_color='white').save(temp_qr_file.name)
 
-# Adjust the position to the top right corner
-qr_position_x = page_width - 120  # Adjust as needed
-qr_position_y = page_height - 120  # Adjust as needed
+    # Adjust the position to the top right corner
+    qr_position_x = page_width - 120  # Adjust as needed
+    qr_position_y = page_height - 120  # Adjust as needed
 
-# Draw the QR code onto the PDF
-pdf.drawInlineImage(temp_qr_file.name, qr_position_x, qr_position_y, width=100, height=100)
+    # Draw the QR code onto the PDF
+    pdf.drawInlineImage(temp_qr_file.name, qr_position_x, qr_position_y, width=100, height=100)
 
-# Remove the temporary file
-temp_qr_file.close()
+    # Remove the temporary file
+    temp_qr_file.close()
 
-pdf.save()
+    pdf.save()
 
     # Set up download button
     st.download_button(
