@@ -61,33 +61,33 @@ def generate_pdf():
     ''')
 
     # Certifications
-    pdf.drawString(20, page_height - 610, "Certifications:")
-    pdf.drawString(20, page_height - 625, "- Data Science Certification")
-    pdf.drawString(20, page_height - 640, "   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
-    pdf.drawString(20, page_height - 655, "   - Lead")
+    pdf.drawString(20, page_height - 480, "Certifications:")
+    pdf.drawString(20, page_height - 495, "- Data Science Certification")
+    pdf.drawString(20, page_height - 510, "   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
+    pdf.drawString(20, page_height - 525, "   - Lead")
 
-    pdf.drawString(20, page_height - 680, "- Python for Data Science and AI Development")
-    pdf.drawString(20, page_height - 695, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
-    pdf.drawString(20, page_height - 710, "   - Lead")
+    pdf.drawString(20, page_height - 550, "- Python for Data Science and AI Development")
+    pdf.drawString(20, page_height - 565, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
+    pdf.drawString(20, page_height - 580, "   - Lead")
 
-    pdf.drawString(20, page_height - 735, "- Databases and SQL with Python")
-    pdf.drawString(20, page_height - 750, "   - Lead")
+    pdf.drawString(20, page_height - 605, "- Databases and SQL with Python")
+    pdf.drawString(20, page_height - 620, "   - Lead")
 
-    pdf.drawString(20, page_height - 775, "- Data Visualization with Python")
-    pdf.drawString(20, page_height - 790, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
-    pdf.drawString(20, page_height - 805, "   - Lead")
+    pdf.drawString(20, page_height - 645, "- Data Visualization with Python")
+    pdf.drawString(20, page_height - 660, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
+    pdf.drawString(20, page_height - 675, "   - Lead")
 
-    pdf.drawString(20, page_height - 830, "- Data Analysis with Python")
-    pdf.drawString(20, page_height - 845, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
-    pdf.drawString(20, page_height - 860, "   - Lead")
+    pdf.drawString(20, page_height - 700, "- Data Analysis with Python")
+    pdf.drawString(20, page_height - 715, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
+    pdf.drawString(20, page_height - 730, "   - Lead")
 
-    pdf.drawString(20, page_height - 885, "- Applied Data Science Capstone")
-    pdf.drawString(20, page_height - 900, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)")
-    pdf.drawString(20, page_height - 915, "   - Lead")
+    pdf.drawString(20, page_height - 755, "- Applied Data Science Capstone")
+    pdf.drawString(20, page_height - 770, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)")
+    pdf.drawString(20, page_height - 785, "   - Lead")
 
-    pdf.drawString(20, page_height - 940, "- IBM Data Science")
-    pdf.drawString(20, page_height - 955, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
-    pdf.drawString(20, page_height - 970, "   - Lead")
+    pdf.drawString(20, page_height - 810, "- IBM Data Science")
+    pdf.drawString(20, page_height - 825, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
+    pdf.drawString(20, page_height - 840, "   - Lead")
 
     pdf.save()
 
@@ -118,6 +118,8 @@ if st.button("Generate PDF", key="generate-pdf-btn", help="Generate and download
 
 # Personal Information
 st.header("Personal Information")
+
+# Display other personal information
 st.write("Name: Anshuman Ojha")
 st.write("Designation: Finops Analyst")
 st.write("Contact: 877743144")
