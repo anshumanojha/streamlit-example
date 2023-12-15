@@ -32,7 +32,7 @@ def generate_pdf():
 
     # Summary
     pdf.drawString(20, page_height - 160, "Summary:")
-    pdf.drawString(20, page_height - 175, '''
+    summary_text = '''
     Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.
     Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.
 
@@ -58,36 +58,18 @@ def generate_pdf():
 
     Metrics and KPIs:
     - Defined and monitored key performance indicators (KPIs) to measure and report on the success of operational initiatives, providing data-driven insights for strategic decision-making.
-    ''')
+    '''
+    pdf.setFont("Helvetica", 7)  # Reduce font size for the summary
+    pdf.drawString(20, page_height - 175, summary_text)
 
     # Certifications
+    pdf.setFont("Helvetica", 8)  # Reset font size for certifications
     pdf.drawString(20, page_height - 480, "Certifications:")
     pdf.drawString(20, page_height - 495, "- Data Science Certification")
     pdf.drawString(20, page_height - 510, "   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
     pdf.drawString(20, page_height - 525, "   - Lead")
 
-    pdf.drawString(20, page_height - 550, "- Python for Data Science and AI Development")
-    pdf.drawString(20, page_height - 565, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
-    pdf.drawString(20, page_height - 580, "   - Lead")
-
-    pdf.drawString(20, page_height - 605, "- Databases and SQL with Python")
-    pdf.drawString(20, page_height - 620, "   - Lead")
-
-    pdf.drawString(20, page_height - 645, "- Data Visualization with Python")
-    pdf.drawString(20, page_height - 660, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
-    pdf.drawString(20, page_height - 675, "   - Lead")
-
-    pdf.drawString(20, page_height - 700, "- Data Analysis with Python")
-    pdf.drawString(20, page_height - 715, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
-    pdf.drawString(20, page_height - 730, "   - Lead")
-
-    pdf.drawString(20, page_height - 755, "- Applied Data Science Capstone")
-    pdf.drawString(20, page_height - 770, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)")
-    pdf.drawString(20, page_height - 785, "   - Lead")
-
-    pdf.drawString(20, page_height - 810, "- IBM Data Science")
-    pdf.drawString(20, page_height - 825, "   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
-    pdf.drawString(20, page_height - 840, "   - Lead")
+    # Add other certifications as needed
 
     pdf.save()
 
@@ -127,6 +109,7 @@ st.write("Email: anshumanojha94@gmail.com")
 
 # Summary
 st.header("Summary")
+# Display summary text
 st.write('''
     Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.
     Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.
@@ -158,29 +141,9 @@ st.write('''
 # Certifications
 st.header("Certifications")
 
+# Display certifications
 st.write("- Data Science Certification")
 st.write("   - Link: [GitHub - Anshuman Ojha](https://github.com/anshumanojha)")
 st.write("   - Lead")
 
-st.write("- Python for Data Science and AI Development")
-st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/EYQS7XR5JQGV)")
-st.write("   - Lead")
-
-st.write("- Databases and SQL with Python")
-st.write("   - Lead")
-
-st.write("- Data Visualization with Python")
-st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/YWQBBWNA4CHX)")
-st.write("   - Lead")
-
-st.write("- Data Analysis with Python")
-st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PHKLT6LDUU3V)")
-st.write("   - Lead")
-
-st.write("- Applied Data Science Capstone")
-st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/certificate/PFEW9WJEB9UL)")
-st.write("   - Lead")
-
-st.write("- IBM Data Science")
-st.write("   - Link: [Coursera Certification](https://www.coursera.org/account/accomplishments/specialization/certificate/YBQ7NCKANHJ9)")
-st.write("   - Lead")
+# Add other certifications as needed
