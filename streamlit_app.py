@@ -5,6 +5,13 @@ from io import BytesIO
 import qrcode
 import tempfile
 
+# Set page layout
+st.set_page_config(
+    page_title="Anshuman Ojha's Resume",
+    page_icon=":clipboard:",
+    layout="wide",
+)
+
 dynamic_bg = """
 <style>
 @keyframes gradient {
@@ -75,7 +82,7 @@ def generate_pdf():
 
     # Summary
     pdf.drawString(20, page_height - 160, "Summary:")
-   
+
     summary_text = [
         "Utilized SQL, Python, and Excel to analyze and interpret complex financial data, providing key insights into team performance and operational efficiency.",
         "Created and automated dashboards for MIS and revenue reporting, improving the accuracy and timeliness of information for cross-functional teams.",
@@ -182,13 +189,6 @@ def generate_pdf():
         file_name="Anshuman_Ojha_Resume.pdf",
         key="pdf-download",
     )
-
-# Set page layout
-st.set_page_config(
-    page_title="Anshuman Ojha's Resume",
-    page_icon=":clipboard:",
-    layout="wide",
-)
 
 # Anshuman's Resume
 st.title("Anshuman Ojha's Resume")
